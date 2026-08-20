@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>크림슨밸류 | CRIMSON VALUE — 고려대 세종 금융·투자 학회</title>
+<meta name="description" content="고려대학교 세종캠퍼스 정식 금융·투자 학회 크림슨밸류(CRIMSON VALUE). 8주 완주형 커리큘럼과 실제 실습 워크시트·활동 자료로 증명하는 가치투자 연구회입니다.">
+<meta name="theme-color" content="#1B2340">
+
+<!-- Open Graph / 카카오톡·인스타그램 링크 미리보기 -->
+<!-- TODO(배포 후): og:url과 og:image를 실제 배포 절대경로(https://...)로 교체하세요 -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CRIMSON VALUE">
+<meta property="og:title" content="크림슨밸류 | CRIMSON VALUE">
+<meta property="og:description" content="고려대학교 세종캠퍼스 정식 금융·투자 학회 — 8주 완주형 커리큘럼과 실제 실습 자료로 증명합니다.">
+<meta property="og:image" content="assets/img/og-cover.png">
+<meta property="og:url" content="">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="크림슨밸류 | CRIMSON VALUE">
+<meta name="twitter:description" content="고려대학교 세종캠퍼스 정식 금융·투자 학회 — 8주 완주형 커리큘럼과 실제 실습 자료로 증명합니다.">
+<meta name="twitter:image" content="assets/img/og-cover.png">
+
+<!-- 파비콘: 브랜드 CV 모노그램 (navy 원 + gold 링 + crimson 텍스트), 별도 파일 없이 인라인 SVG -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%231B2340' stroke='%23C9A227' stroke-width='3'/%3E%3Ctext x='32' y='41' font-family='Arial,Helvetica,sans-serif' font-weight='800' font-size='22' fill='%238C1D2B' text-anchor='middle'%3ECV%3C/text%3E%3C/svg%3E">
+
+<!-- 웹폰트: Pretendard (정적 HTML/빌드 단계가 없는 스택이라 npm 번들 대신 공식 CDN 배포본을 사용 — 로컬 폰트 설치 여부와 무관하게 동일하게 렌더링됩니다) -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" as="style" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
+
+<style>
+  :root {
+    --crimson: #8C1D2B;
+    --navy: #1B2340;
+    --gold: #C9A227;
+    --gold-text: #7A5F14; /* 페이퍼 배경 위 텍스트용 — 골드보다 어둡게 낮춰 명도 대비 4.5:1 이상 확보 */
+    --paper: #FAF7F2;
+    --charcoal: #22201E;
+    --gray: #767066;
+    --line: #E4DCD0;
+    --line2: #D9D2C4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Pretendard', 'Noto Sans CJK KR', sans-serif;
+    background: var(--paper);
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 40px; }
+
+  /* NAV */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(250,247,242,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav { position: relative; display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: 1px; font-size: 16px; color: var(--navy); }
+  .logo .mark { width: 30px; height: 30px; border-radius: 50%; border: 1.4px solid var(--gold); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: var(--crimson); }
+  .navlinks { display: flex; gap: 26px; font-size: 14px; font-weight: 600; color: var(--gray); }
+  .navlinks a:hover { color: var(--crimson); }
+
+  .nav-toggle { display: none; }
+  .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; margin: -8px; }
+  .nav-burger span { width: 22px; height: 2px; border-radius: 2px; background: var(--navy); display: block; }
+
+  @media (max-width: 900px) {
+    .nav-burger { display: flex; }
+    .navlinks {
+      position: absolute; top: calc(100% + 1px); left: 0; right: 0;
+      flex-direction: column; gap: 0;
+      background: #fff; border: 1px solid var(--line);
+      border-radius: 0 0 14px 14px;
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.25s ease;
+      box-shadow: 0 16px 30px rgba(0,0,0,0.1);
+    }
+    .navlinks a { padding: 14px 24px; border-top: 1px solid var(--line); }
+    .nav-toggle:checked ~ .navlinks { max-height: 480px; }
+  }
+
+  /* HERO */
+  .hero { padding: 96px 0 76px; text-align: center; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 7px 16px; border-radius: 999px;
+    background: #fff; border: 1px solid var(--line2);
+    font-size: 12.5px; font-weight: 700; color: var(--navy); letter-spacing: 0.3px;
+    margin-bottom: 26px;
+  }
+  .eyebrow b { color: var(--crimson); }
+  .hero h1 {
+    font-size: 46px; font-weight: 800; color: var(--navy); letter-spacing: -1px; line-height: 1.28;
+    margin-bottom: 20px;
+  }
+  .hero h1 .accent { color: var(--crimson); }
+  .hero p { font-size: 16.5px; color: var(--gray); max-width: 560px; margin: 0 auto; }
+
+  .hero-cta { display: flex; gap: 12px; justify-content: center; margin-top: 32px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; padding: 13px 26px; border-radius: 10px; font-weight: 700; font-size: 14.5px; letter-spacing: 0.2px; }
+  .btn-primary { background: var(--crimson); color: #fff; box-shadow: 0 8px 20px rgba(140,29,43,0.25); }
+  .btn-primary:hover { background: #a3222f; }
+  .btn-ghost { background: #fff; color: var(--navy); border: 1.4px solid var(--line2); }
+  .btn-ghost:hover { border-color: var(--navy); }
+
+  .stat-row {
+    display: grid; grid-template-columns: repeat(4,1fr); gap: 1px;
+    background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+    margin-top: 52px;
+  }
+  .stat { background: #fff; padding: 26px 14px; text-align: center; }
+  .stat .num { font-size: 26px; font-weight: 800; color: var(--navy); letter-spacing: -0.5px; }
+  .stat .lbl { font-size: 12px; color: var(--gray); margin-top: 6px; letter-spacing: 0.2px; }
+
+  /* SECTION shared */
+  section { padding: 84px 0; border-top: 1px solid var(--line); }
+  .sec-head { margin-bottom: 44px; }
+  .sec-kicker { font-size: 12px; font-weight: 800; letter-spacing: 2.5px; color: var(--gold-text); margin-bottom: 10px; }
+  .sec-title { font-size: 28px; font-weight: 800; color: var(--navy); letter-spacing: -0.5px; }
+  .sec-sub { font-size: 15px; color: var(--gray); margin-top: 10px; max-width: 620px; }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: start; }
+  .about-body p { font-size: 15px; color: #3a372f; margin-bottom: 16px; }
+  .about-body b { color: var(--navy); }
+  .badge-list { display: flex; flex-direction: column; gap: 12px; }
+  .badge-item {
+    display: flex; gap: 12px; align-items: flex-start;
+    background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px;
+  }
+  .badge-item .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--crimson); margin-top: 6px; flex-shrink: 0; }
+  .badge-item .t { font-weight: 700; font-size: 14px; color: var(--navy); }
+  .badge-item .d { font-size: 12.5px; color: var(--gray); margin-top: 2px; }
+
+  /* CURRICULUM */
+  .weeks { display: flex; flex-direction: column; }
+  .week {
+    display: grid; grid-template-columns: 90px 1fr; gap: 20px;
+    padding: 16px 0; border-bottom: 1px solid var(--line);
+  }
+  .week:first-child { padding-top: 0; }
+  .week .wk { font-weight: 800; font-size: 13px; color: var(--gold-text); letter-spacing: 0.5px; }
+  .week .wtitle { font-weight: 700; font-size: 15px; color: var(--navy); }
+  .week .wdesc { font-size: 13px; color: var(--gray); margin-top: 3px; }
+
+  .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 36px; }
+  .team-card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 20px 18px; }
+  .team-card .ti { font-size: 22px; margin-bottom: 10px; }
+  .team-card .tt { font-weight: 700; font-size: 14.5px; color: var(--navy); margin-bottom: 6px; }
+  .team-card .td { font-size: 12px; color: var(--gray); line-height: 1.55; }
+  .team-note { font-size: 12.5px; color: var(--gray); margin-top: 16px; }
+
+  /* OPERATION */
+  .op-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .op-card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 22px 20px; }
+  .op-card .oi { width: 36px; height: 36px; border-radius: 50%; background: rgba(140,29,43,0.08); border: 1px solid rgba(140,29,43,0.25); display: flex; align-items: center; justify-content: center; font-size: 15px; margin-bottom: 14px; }
+  .op-card .ot { font-weight: 700; font-size: 14.5px; color: var(--navy); margin-bottom: 6px; }
+  .op-card .od { font-size: 12.5px; color: var(--gray); line-height: 1.6; }
+
+  /* BUDGET */
+  .budget-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+  .budget-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  .budget-table th { text-align: left; font-size: 11px; letter-spacing: 1px; color: var(--gray); font-weight: 700; padding: 8px 0; border-bottom: 1.5px solid var(--navy); }
+  .budget-table td { padding: 9px 0; border-bottom: 1px solid var(--line); color: #3a372f; }
+  .budget-table td.num { text-align: right; font-weight: 600; color: var(--navy); }
+  .budget-table tr.total td { font-weight: 800; color: var(--navy); border-bottom: none; border-top: 1.5px solid var(--navy); padding-top: 12px; }
+  .balance-badge {
+    margin-top: 18px; display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,162,39,0.1); border: 1px solid rgba(201,162,39,0.4);
+    border-radius: 999px; padding: 8px 16px; font-size: 12.5px; font-weight: 700; color: #7a5f14;
+  }
+  .budget-note { font-size: 12px; color: var(--gray); margin-top: 14px; line-height: 1.6; }
+
+  /* COMPLETION */
+  .comp-flow { display: flex; align-items: center; gap: 0; flex-wrap: wrap; margin-bottom: 32px; }
+  .comp-step { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; font-size: 13px; font-weight: 700; color: var(--navy); flex: 1; min-width: 180px; text-align: center; }
+  .comp-arrow { color: var(--gold-text); font-size: 16px; padding: 0 10px; }
+  .comp-cert {
+    display: flex; align-items: center; gap: 20px;
+    background: linear-gradient(120deg, #1B2340, #2A0F16);
+    border-radius: 14px; padding: 26px 30px; color: #fff;
+  }
+  .comp-cert .cseal { width: 52px; height: 52px; border-radius: 50%; border: 1.3px solid var(--gold); display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--gold); flex-shrink: 0; }
+  .comp-cert .ct { font-weight: 700; font-size: 15px; margin-bottom: 4px; }
+  .comp-cert .cd { font-size: 12.5px; color: #cfc9d8; }
+
+  /* PROOF GALLERY */
+  .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .proof-item img { width: 100%; display: block; border-radius: 8px; border: 1px solid var(--line2); box-shadow: 0 10px 24px rgba(0,0,0,0.06); }
+  .proof-item figcaption { font-size: 12.5px; color: var(--gray); margin-top: 10px; line-height: 1.5; }
+  .proof-item figcaption b { display: block; color: var(--navy); font-size: 13px; margin-bottom: 2px; }
+  .proof-note { font-size: 12px; color: var(--gray); margin-top: 26px; line-height: 1.6; }
+
+  /* ARCHIVE */
+  .archive-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .archive-card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 22px 20px; display: flex; flex-direction: column; }
+  .archive-card .ai { font-size: 22px; margin-bottom: 10px; }
+  .archive-card .at { font-weight: 700; font-size: 14.5px; color: var(--navy); margin-bottom: 3px; }
+  .archive-card .am { font-size: 11px; color: var(--gold-text); font-weight: 700; letter-spacing: 0.3px; margin-bottom: 8px; }
+  .archive-card .ad { font-size: 12px; color: var(--gray); line-height: 1.6; flex: 1; margin-bottom: 16px; }
+  .archive-card .dl {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    font-size: 13px; font-weight: 700; color: var(--crimson);
+    border: 1px solid rgba(140,29,43,0.3); border-radius: 8px; padding: 9px 14px;
+  }
+  .archive-card .dl:hover { background: rgba(140,29,43,0.06); }
+  .archive-note { font-size: 12px; color: var(--gray); margin-top: 22px; line-height: 1.6; }
+
+  footer { padding: 56px 0 70px; border-top: 1px solid var(--line); }
+  .foot-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+  .foot-brand { font-weight: 800; color: var(--navy); font-size: 14px; letter-spacing: 1px; }
+  .foot-sub { font-size: 12px; color: var(--gray); margin-top: 4px; }
+  .foot-links { display: flex; gap: 22px; font-size: 13px; font-weight: 600; color: var(--gray); }
+  .foot-links a:hover { color: var(--crimson); }
+
+  @media (max-width: 760px) {
+    .stat-row, .op-grid, .team-grid, .archive-grid, .proof-grid { grid-template-columns: repeat(2,1fr); }
+    .about-grid, .budget-wrap { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 32px; }
+    .hero-cta { flex-direction: column; align-items: stretch; }
+    .wrap { padding: 0 24px; }
+  }
+  @media (max-width: 480px) {
+    .stat-row, .op-grid, .team-grid, .archive-grid, .proof-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="logo"><span class="mark">CV</span> CRIMSON VALUE</div>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-burger" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </label>
+      <div class="navlinks">
+        <a href="#about">학회 소개</a>
+        <a href="#curriculum">커리큘럼</a>
+        <a href="#operation">운영 방식</a>
+        <a href="#budget">예산</a>
+        <a href="#completion">수료 기준</a>
+        <a href="#archive">자료실</a>
+        <a href="#contact">문의</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="border-top:none; padding-top:96px;">
+  <div class="wrap">
+    <div class="eyebrow">크림슨브레인 공식 인정 학회 · <b>UIC 충청지부</b> 소속</div>
+    <h1>주식, 감으로 하지 말고<br><span class="accent">'가치'</span>로 투자합니다</h1>
+    <p>크림슨밸류는 고려대학교 세종캠퍼스의 정식 금융·투자 학회입니다. 2026-2학기부터 세종금융학회(SFA)와 통합해, 리서치·밸류에이션 실습부터 자격증 취득·취업 네트워크까지 아우르는 학회로 운영됩니다.</p>
+
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://qrfy.io/0g4aI-nK61" target="_blank" rel="noopener noreferrer">2기 지원서 제출하기</a>
+      <a class="btn btn-ghost" href="https://qrfy.io/OPRmpJRbOu" target="_blank" rel="noopener noreferrer">오픈채팅으로 문의하기</a>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat"><div class="num">EST. 2026</div><div class="lbl">크림슨브레인 산하 설립</div></div>
+      <div class="stat"><div class="num">8주</div><div class="lbl">완주형 기초 커리큘럼</div></div>
+      <div class="stat"><div class="num">1,000+</div><div class="lbl">UIC 전국 네트워크(단톡방 기준)</div></div>
+      <div class="stat"><div class="num">4개 팀</div><div class="lbl">기초 수료 후 진급 트랙</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">ABOUT</div>
+      <div class="sec-title">학회 소개</div>
+      <div class="sec-sub">크림슨밸류가 어떤 학회인지, 왜 지금 SFA와 통합해 확대되는지 정리했습니다.</div>
+    </div>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>크림슨밸류(Crimson Value)는 <b>크림슨브레인 산하 공식 인정 학회</b>이자, 전국대학생투자동아리연합회(UIC) 충청지부 소속 가치투자·금융 학회입니다. 여름 연구회 형태로 시작해, 2026-2학기부터는 학기 중 오프라인 정규세션 체제로 전환합니다.</p>
+        <p>이번 학기부터는 <b>세종금융학회(SFA)</b>와 통합합니다. SFA가 계획하던 거시경제·산업 리서치가 크림슨밸류 커리큘럼과 중복되어, 두 학회 학회장·담당교수 협의를 거쳐 하나의 확대된 학회로 합쳐지게 되었습니다. 기존 크림슨밸류 회원과 SFA 회원 모두 동일한 절차로 2기에 재합류합니다.</p>
+        <p>핵심 포지셔닝은 "말이 아니라 결과물로 증명한다"입니다. 실제 기업 데이터를 다루는 워크시트 기반 실습으로 8주 만에 나만의 기업 리서치 리포트를 완성하는 것을 목표로 합니다.</p>
+      </div>
+      <div class="badge-list">
+        <div class="badge-item"><div class="dot"></div><div><div class="t">크림슨브레인 공식 인정</div><div class="d">전교 정식 학회로서 운영 · 지도교수 배정</div></div></div>
+        <div class="badge-item"><div class="dot"></div><div><div class="t">UIC 충청지부 소속</div><div class="d">전국 대학생 투자동아리 연합 네트워크 참여</div></div></div>
+        <div class="badge-item"><div class="dot"></div><div><div class="t">세종금융학회(SFA) 통합</div><div class="d">2026-2학기부터 하나의 확대된 학회로 운영</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="curriculum">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">CURRICULUM</div>
+      <div class="sec-title">커리큘럼 개요</div>
+      <div class="sec-sub">8주 기초 과정을 마치면, 관심사에 맞는 전문 팀으로 진급해 실전 활동을 이어갑니다.</div>
+    </div>
+
+    <div class="weeks">
+      <div class="week"><div class="wk">1주차</div><div><div class="wtitle">거시경제 읽기 & 뉴스 스크랩</div><div class="wdesc">뉴스클리핑 챌린지 시작 — 매주 시황 뉴스 분석을 습관화</div></div></div>
+      <div class="week"><div class="wk">2주차</div><div><div class="wtitle">생활 속 기업 찾기 & BM 분석</div><div class="wdesc">8주간 이어갈 관심기업 확정 (관통구조 시작)</div></div></div>
+      <div class="week"><div class="wk">3주차</div><div><div class="wtitle">재무제표 읽기</div><div class="wdesc">관심기업 재무제표(DART)로 실습 적용</div></div></div>
+      <div class="week"><div class="wk">4주차</div><div><div class="wtitle">시가총액 & 기업 규모</div><div class="wdesc">관심기업 시가총액 분석 적용</div></div></div>
+      <div class="week"><div class="wk">5주차</div><div><div class="wtitle">PER · PBR 상대평가</div><div class="wdesc">관통구조 마무리 — 관심기업 리포트 완성</div></div></div>
+      <div class="week"><div class="wk">6주차</div><div><div class="wtitle">모의·실전 매수 & 투자일기</div><div class="wdesc">직접 매수 판단을 기록하고 근거를 남기는 훈련</div></div></div>
+      <div class="week"><div class="wk">7주차</div><div><div class="wtitle">포트폴리오 구성 & 비중관리</div><div class="wdesc">여러 종목을 조합해 리스크를 관리하는 법 실습</div></div></div>
+      <div class="week"><div class="wk">8주차</div><div><div class="wtitle">가상 펀드 피칭 데이</div><div class="wdesc">8주간의 결과물을 1페이지 리포트로 조립해 발표</div></div></div>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-card"><div class="ti">📈</div><div class="tt">투자분석팀</div><div class="td">바텀업 전략 기반 단일 기업·섹터 심층 분석</div></div>
+      <div class="team-card"><div class="ti">🌐</div><div class="tt">매크로분석팀</div><div class="td">금리·환율·원자재 등 탑다운 거시경제 분석</div></div>
+      <div class="team-card"><div class="ti">📑</div><div class="tt">리서치팀</div><div class="td">두 팀의 분석을 종합해 학회 공식 리포트 발간</div></div>
+      <div class="team-card"><div class="ti">💼</div><div class="tt">취업준비팀</div><div class="td">금융권 자소서·면접 스터디, 현직자 네트워크 활용</div></div>
+    </div>
+    <div class="team-note">※ 교육팀(운영진 산하)은 우수 수료자에게 조교 역할을 부여하는 형태로 별도 운영됩니다.</div>
+  </div>
+</section>
+
+<section id="operation">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">HOW WE OPERATE</div>
+      <div class="sec-title">운영 방식</div>
+      <div class="sec-sub">매주 정규세션이 실제로 어떻게 진행되는지 설명합니다.</div>
+    </div>
+    <div class="op-grid">
+      <div class="op-card"><div class="oi">⏱</div><div class="ot">60분 세션 구조</div><div class="od">기초개념설명(15분) → 조별활동(30분) → 사전 배포 문제지 기반 지목 답변(15분)</div></div>
+      <div class="op-card"><div class="oi">👥</div><div class="ot">조 편성</div><div class="od">기존 회원과 신입을 같은 조에 섞어 자연스러운 멘토-멘티 구도 형성. 조별 전담 운영진은 배정하지 않음</div></div>
+      <div class="op-card"><div class="oi">🎯</div><div class="ot">관통구조</div><div class="od">2주차에 정한 관심기업 1개를 5주차까지 이어서 분석 — 흩어진 실습이 아닌 하나의 리포트로 수렴</div></div>
+      <div class="op-card"><div class="oi">📰</div><div class="ot">뉴스클리핑 챌린지</div><div class="od">관심기업과 무관하게 그 주 시황 뉴스를 매주 분석 — 공개 게시로 습관화, 이후 학회 아카이브로 재사용</div></div>
+      <div class="op-card"><div class="oi">📝</div><div class="ot">표준 워크시트</div><div class="od">제목·핵심개념·내 분석·배운 점 4단 양식으로 통일 — 8주차엔 이어 붙여 피칭덱 초안으로 활용</div></div>
+      <div class="op-card"><div class="oi">🏛</div><div class="ot">UIC 네트워크 참여</div><div class="od">충청지부 세미나, 서울 금융투자협회 정기총회 등 전국 단위 네트워크에 참여</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="budget">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">TRANSPARENCY</div>
+      <div class="sec-title">예산 안내</div>
+      <div class="sec-sub">학회비가 어디에 쓰이는지 투명하게 공개합니다. 아래는 가편성 기준이며, 실제 지원 인원에 따라 조정됩니다.</div>
+    </div>
+    <div class="budget-wrap">
+      <div>
+        <table class="budget-table">
+          <tr><th>수입</th><th style="text-align:right">금액</th></tr>
+          <tr><td>학과(단과대) 지원금</td><td class="num">500,000원</td></tr>
+          <tr><td>부원 회비 (20명 기준)</td><td class="num">400,000원</td></tr>
+          <tr class="total"><td>총 수입</td><td class="num">900,000원</td></tr>
+        </table>
+      </div>
+      <div>
+        <table class="budget-table">
+          <tr><th>지출</th><th style="text-align:right">금액</th></tr>
+          <tr><td>정기세션 다과비 (10회)</td><td class="num">300,000원</td></tr>
+          <tr><td>가상펀드 피칭데이</td><td class="num">150,000원</td></tr>
+          <tr><td>OT · 신입환영회</td><td class="num">100,000원</td></tr>
+          <tr><td>자격증 취득 지원</td><td class="num">100,000원</td></tr>
+          <tr><td>완주자 수료증 제작</td><td class="num">45,000원</td></tr>
+          <tr><td>워크시트 인쇄 · 면접 · 홍보물 등</td><td class="num">100,000원</td></tr>
+          <tr><td>예비비</td><td class="num">105,000원</td></tr>
+          <tr class="total"><td>총 지출</td><td class="num">900,000원</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="balance-badge">✓ 수지 차액 0원 — 균형 예산으로 운영</div>
+    <div class="budget-note">※ 가편성 기준(2026.08.17 작성)이며, 2기 실제 지원 인원(SFA 통합으로 증가 예상)에 맞춰 항목별 금액이 조정될 수 있습니다.</div>
+  </div>
+</section>
+
+<section id="completion">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">CERTIFICATE</div>
+      <div class="sec-title">수료 기준</div>
+      <div class="sec-sub">아래 세 가지를 모두 충족하면 완주 수료증이 발급됩니다.</div>
+    </div>
+    <div class="comp-flow">
+      <div class="comp-step">정규 활동 10회 중 8회 이상 참여</div>
+      <div class="comp-arrow">+</div>
+      <div class="comp-step">UIC 활동 1회 이상 참여</div>
+      <div class="comp-arrow">+</div>
+      <div class="comp-step">최종 리서치 리포트 제출</div>
+    </div>
+    <div class="comp-cert">
+      <div class="cseal">CV</div>
+      <div>
+        <div class="ct">지도교수 · 학회장 공동 명의로 발급</div>
+        <div class="cd">UIC 명칭·인증은 포함하지 않습니다 — 크림슨밸류 고유 활동으로서의 정체성을 지키기 위함입니다.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proof">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">PROOF OF WORK</div>
+      <div class="sec-title">실제 실습 자료</div>
+      <div class="sec-sub">2026 하계 연구회 1~5주차에서 실제로 작성된 워크시트 캡처입니다. 2학기부터는 이런 실습을 8주간 이어가며 관심기업 1개에 대한 개인 리서치 리포트로 완성합니다.</div>
+    </div>
+    <div class="proof-grid">
+      <figure class="proof-item">
+        <img src="assets/img/w1-balance-sheet.png" alt="삼성전자 재무상태표(연결) 실습 워크시트 캡처 — 1주차 3-Statement 연결 실습, 대차검증 결과">
+        <figcaption><b>1주차 · 재무상태표(연결)</b>세 재무제표를 수식으로 잇는 3-Statement 연결 실습, 대차검증까지 확인</figcaption>
+      </figure>
+      <figure class="proof-item">
+        <img src="assets/img/w1-income-statement.png" alt="삼성전자 손익계산서(연결) 실습 워크시트 캡처 — 1주차 3-Statement 연결 실습">
+        <figcaption><b>1주차 · 손익계산서(연결)</b>매출액부터 당기순이익까지 손익 구조를 확인</figcaption>
+      </figure>
+      <figure class="proof-item">
+        <img src="assets/img/w1-cashflow-statement.png" alt="삼성전자 현금흐름표(연결) 실습 워크시트 캡처 — 1주차 3-Statement 연결 실습">
+        <figcaption><b>1주차 · 현금흐름표(연결)</b>이익과 현금의 차이를 영업·투자·재무활동으로 분해</figcaption>
+      </figure>
+      <figure class="proof-item">
+        <img src="assets/img/w3-accruals.png" alt="이익의 질(Accruals) 비교 실습 워크시트 캡처 — 3주차, 기업 A·B의 Accruals Ratio 비교">
+        <figcaption><b>3주차 · 이익의 질(Accruals)</b>순이익 대비 영업현금흐름으로 회계이익의 질을 진단</figcaption>
+      </figure>
+      <figure class="proof-item">
+        <img src="assets/img/w4-wacc.png" alt="WACC 계산기 실습 워크시트 캡처 — 4주차, CAPM 기반 자본비용 산출">
+        <figcaption><b>4주차 · WACC 계산기</b>CAPM으로 자기자본비용을 구하고 가중평균자본비용 산출</figcaption>
+      </figure>
+      <figure class="proof-item">
+        <img src="assets/img/w5-eps-sensitivity.png" alt="EPS 민감도 분석 실습 워크시트 캡처 — 5주차, 환율·가동률 변수에 따른 EPS·목표주가 변화">
+        <figcaption><b>5주차 · EPS 민감도 분석</b>환율·가동률 변수를 흔들어 EPS·목표주가 변화를 확인</figcaption>
+      </figure>
+    </div>
+    <div class="proof-note">※ 학습용으로 단순화된 자료이며, 실제 세션에서는 더 다양한 기업·지표를 다룹니다. 원본 템플릿과 정답키는 아래 자료실에서 그대로 받아볼 수 있습니다.</div>
+  </div>
+</section>
+
+<section id="archive">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">ARCHIVE</div>
+      <div class="sec-title">자료실</div>
+      <div class="sec-sub">말이 아니라 실제 결과물로 증명합니다. 2026 하계 연구회에서 실제로 쓰인 커리큘럼 가이드, 정답키, 실습 템플릿, 활동 보고서를 그대로 공개합니다.</div>
+    </div>
+    <div class="archive-grid">
+      <div class="archive-card">
+        <div class="ai">📘</div>
+        <div class="at">8주 학습 가이드</div>
+        <div class="am">PDF · 약 1.2MB</div>
+        <div class="ad">매크로분석팀·투자분석팀 주차별 학습 목표, 필수/선택 과제 전체 안내</div>
+        <a class="dl" href="assets/docs/크림슨밸류_연구회_8주_학습가이드.pdf" download>PDF 다운로드 ↓</a>
+      </div>
+      <div class="archive-card">
+        <div class="ai">📊</div>
+        <div class="at">3-Statement 연결 정답키</div>
+        <div class="am">XLSX · 약 14KB</div>
+        <div class="ad">1주차 재무제표 3표(재무상태표·손익계산서·현금흐름표) 연결 실습 정답키</div>
+        <a class="dl" href="assets/docs/삼성전자_3Statement_연결_정답키.xlsx" download>XLSX 다운로드 ↓</a>
+      </div>
+      <div class="archive-card">
+        <div class="ai">📗</div>
+        <div class="at">이익의 질(Accruals) 템플릿</div>
+        <div class="am">XLSX · 약 9KB · 학생용</div>
+        <div class="ad">3주차 Accruals Ratio 계산 실습 템플릿 — 기업 A·B 비교</div>
+        <a class="dl" href="assets/docs/투자분석_3주차_이익의질Accruals_템플릿(학생용).xlsx" download>XLSX 다운로드 ↓</a>
+      </div>
+      <div class="archive-card">
+        <div class="ai">📈</div>
+        <div class="at">WACC 계산 템플릿</div>
+        <div class="am">XLSX · 약 9KB · 학생용</div>
+        <div class="ad">4주차 CAPM 기반 자기자본비용·WACC 산출 실습 템플릿</div>
+        <a class="dl" href="assets/docs/투자분석_4주차_WACC_템플릿(학생용).xlsx" download>XLSX 다운로드 ↓</a>
+      </div>
+      <div class="archive-card">
+        <div class="ai">📉</div>
+        <div class="at">EPS 민감도 템플릿</div>
+        <div class="am">XLSX · 약 9KB · 학생용</div>
+        <div class="ad">5주차 환율·가동률 변수에 따른 EPS·목표주가 민감도 실습 템플릿</div>
+        <a class="dl" href="assets/docs/투자분석_5주차_EPS민감도_템플릿(학생용).xlsx" download>XLSX 다운로드 ↓</a>
+      </div>
+      <div class="archive-card">
+        <div class="ai">🌐</div>
+        <div class="at">유동성 vs S&P500 데이터</div>
+        <div class="am">XLSX · 약 17KB</div>
+        <div class="ad">매크로분석팀 1주차 — 유동성 지표 3종과 S&P500 비교 차트 및 원본 데이터</div>
+        <a class="dl" href="assets/docs/매크로_유동성_vs_SP500.xlsx" download>XLSX 다운로드 ↓</a>
+      </div>
+      <div class="archive-card">
+        <div class="ai">📝</div>
+        <div class="at">활동 보고서 예시</div>
+        <div class="am">DOCX · 약 703KB</div>
+        <div class="ad">투자분석팀 실제 활동 보고서(1~5주차 작성 기준) — 어떤 결과물이 나오는지 확인할 수 있습니다</div>
+        <a class="dl" href="assets/docs/크림슨밸류_투자분석팀_활동보고서_박지민.docx" download>DOCX 다운로드 ↓</a>
+      </div>
+    </div>
+    <div class="archive-note">※ 위 자료는 2026 하계 연구회에서 실제로 사용된 원본입니다(교육용으로 단순화된 예시 데이터 포함, 개인정보 없음 확인 완료). 주차별 정답 해설 등 공개 범위 밖의 자료는 오픈채팅으로 운영진에게 문의해 주세요.</div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-row">
+      <div>
+        <div class="foot-brand">CRIMSON VALUE</div>
+        <div class="foot-sub">고려대학교 세종캠퍼스 정식 금융·투자 학회 · EST. 2026</div>
+      </div>
+      <div class="foot-links">
+        <a href="https://qrfy.io/0g4aI-nK61" target="_blank" rel="noopener noreferrer">지원서 (구글폼)</a>
+        <a href="https://qrfy.io/OPRmpJRbOu" target="_blank" rel="noopener noreferrer">오픈채팅 문의</a>
+        <a href="https://forms.gle/eGyasnbWuEX4r5an8" target="_blank" rel="noopener noreferrer">모집 안내 페이지</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // 모바일 내비게이션: 링크 클릭 시 메뉴 자동 닫기
+  (function () {
+    var toggle = document.getElementById('nav-toggle');
+    var links = document.querySelectorAll('.navlinks a');
+    if (!toggle) return;
+    links.forEach(function (a) {
+      a.addEventListener('click', function () { toggle.checked = false; });
+    });
+  })();
+</script>
+
+</body>
+</html>
