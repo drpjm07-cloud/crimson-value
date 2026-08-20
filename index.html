@@ -213,18 +213,45 @@
   .foot-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
   .foot-brand { font-weight: 800; color: var(--navy); font-size: 14px; letter-spacing: 1px; }
   .foot-sub { font-size: 12px; color: var(--gray); margin-top: 4px; }
-  .foot-links { display: flex; gap: 22px; font-size: 13px; font-weight: 600; color: var(--gray); }
+  .foot-sub a { font-weight: 600; }
+  .foot-sub a:hover { color: var(--crimson); }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 18px 22px; font-size: 13px; font-weight: 600; color: var(--gray); }
   .foot-links a:hover { color: var(--crimson); }
 
+  /* ===== 모바일 최적화 ===== */
+  @media (max-width: 900px) {
+    .wrap { padding: 0 28px; }
+    section { padding: 64px 0; }
+    .hero { padding: 64px 0 56px; }
+    .sec-title { font-size: 25px; }
+  }
   @media (max-width: 760px) {
     .stat-row, .op-grid, .team-grid, .archive-grid, .proof-grid { grid-template-columns: repeat(2,1fr); }
     .about-grid, .budget-wrap { grid-template-columns: 1fr; }
     .hero h1 { font-size: 32px; }
     .hero-cta { flex-direction: column; align-items: stretch; }
-    .wrap { padding: 0 24px; }
+    .hero-cta .btn { width: 100%; }
+    .wrap { padding: 0 22px; }
+    section { padding: 52px 0; }
+    .hero { padding: 52px 0 44px; }
+    .sec-head { margin-bottom: 32px; }
+    .comp-flow { flex-direction: column; align-items: stretch; gap: 8px; }
+    .comp-step { min-width: 0; }
+    .comp-arrow { text-align: center; padding: 0; }
+    .comp-cert { flex-direction: column; text-align: center; }
+    .foot-row { text-align: center; justify-content: center; }
+    .foot-links { justify-content: center; }
   }
   @media (max-width: 480px) {
     .stat-row, .op-grid, .team-grid, .archive-grid, .proof-grid { grid-template-columns: 1fr; }
+    .wrap { padding: 0 18px; }
+    .hero h1 { font-size: 27px; }
+    .hero p { font-size: 15px; }
+    .eyebrow { font-size: 11.5px; padding: 6px 14px; }
+    .sec-title { font-size: 22px; }
+    .sec-sub { font-size: 14px; }
+    .btn { padding: 13px 20px; font-size: 14px; }
+    .op-card, .archive-card, .team-card { padding: 18px 16px; }
   }
 </style>
 </head>
@@ -504,11 +531,13 @@
       <div>
         <div class="foot-brand">CRIMSON VALUE</div>
         <div class="foot-sub">고려대학교 세종캠퍼스 정식 금융·투자 학회 · EST. 2026</div>
+        <div class="foot-sub">문의 메일 · <a href="mailto:drpjm07@korea.ac.kr">drpjm07@korea.ac.kr</a></div>
       </div>
       <div class="foot-links">
         <a href="https://qrfy.io/0g4aI-nK61" target="_blank" rel="noopener noreferrer">지원서 (구글폼)</a>
         <a href="https://qrfy.io/OPRmpJRbOu" target="_blank" rel="noopener noreferrer">오픈채팅 문의</a>
         <a href="https://forms.gle/eGyasnbWuEX4r5an8" target="_blank" rel="noopener noreferrer">모집 안내 페이지</a>
+        <a href="mailto:drpjm07@korea.ac.kr">이메일 문의</a>
       </div>
     </div>
   </div>
