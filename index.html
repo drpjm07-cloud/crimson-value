@@ -60,26 +60,41 @@
   nav { position: relative; display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
   .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: 1px; font-size: 16px; color: var(--navy); }
   .logo .mark { width: 30px; height: 30px; border-radius: 50%; border: 1.4px solid var(--gold); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: var(--crimson); }
-  .navlinks { display: flex; gap: 26px; font-size: 14px; font-weight: 600; color: var(--gray); }
-  .navlinks a:hover { color: var(--crimson); }
+
+  /* 오른쪽 그룹: 기본 메뉴(항상 노출) + 더보기 버튼(예산·자료실 전용) */
+  .nav-right { display: flex; align-items: center; gap: 22px; }
+  .navlinks-main { display: flex; gap: 26px; font-size: 14px; font-weight: 600; color: var(--gray); }
+  .navlinks-main a:hover { color: var(--crimson); }
 
   .nav-toggle { display: none; }
-  .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; margin: -8px; }
+  .nav-burger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; margin: -8px; }
   .nav-burger span { width: 22px; height: 2px; border-radius: 2px; background: var(--navy); display: block; }
 
+  /* 더보기 드롭다운: 예산 · 자료실 — 데스크톱에서도 이 버튼을 눌러야만 나타남 */
+  .navlinks-more {
+    position: absolute; top: calc(100% + 9px); right: 0; min-width: 190px;
+    display: flex; flex-direction: column; gap: 0;
+    background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.25s ease;
+    box-shadow: 0 16px 30px rgba(0,0,0,0.12);
+    font-size: 14px; font-weight: 600; color: var(--gray);
+  }
+  .navlinks-more a { padding: 13px 20px; border-top: 1px solid var(--line); white-space: nowrap; }
+  .navlinks-more a:first-child { border-top: none; }
+  .navlinks-more a:hover { color: var(--crimson); }
+  .nav-toggle:checked ~ .navlinks-more { max-height: 480px; }
+
+  .only-mobile { display: none; }
+
   @media (max-width: 900px) {
-    .nav-burger { display: flex; }
-    .navlinks {
-      position: absolute; top: calc(100% + 1px); left: 0; right: 0;
-      flex-direction: column; gap: 0;
-      background: #fff; border: 1px solid var(--line);
+    .navlinks-main { display: none; }
+    .navlinks-more {
+      left: 0; right: 0; top: calc(100% + 1px); min-width: 0;
       border-radius: 0 0 14px 14px;
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.25s ease;
-      box-shadow: 0 16px 30px rgba(0,0,0,0.1);
     }
-    .navlinks a { padding: 14px 24px; border-top: 1px solid var(--line); }
-    .nav-toggle:checked ~ .navlinks { max-height: 480px; }
+    .navlinks-more a { padding: 14px 24px; }
+    .only-mobile { display: block; }
   }
 
   /* HERO */
@@ -152,6 +167,11 @@
   .team-card .tt { font-weight: 700; font-size: 14.5px; color: var(--navy); margin-bottom: 6px; }
   .team-card .td { font-size: 12px; color: var(--gray); line-height: 1.55; }
   .team-note { font-size: 12.5px; color: var(--gray); margin-top: 16px; }
+  .curriculum-note { font-size: 12.5px; color: var(--gray); margin-top: 10px; }
+  .extra-activities { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--line); }
+  .extra-activities .ea-title { font-weight: 700; font-size: 13px; color: var(--navy); margin-bottom: 10px; }
+  .extra-activities .ea-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .extra-activities .ea-list span { font-size: 12px; color: var(--gray); background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; }
 
   /* OPERATION */
   .op-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -261,18 +281,27 @@
   <div class="wrap">
     <nav>
       <div class="logo"><span class="mark">CV</span> CRIMSON VALUE</div>
-      <input type="checkbox" id="nav-toggle" class="nav-toggle">
-      <label for="nav-toggle" class="nav-burger" aria-label="메뉴 열기">
-        <span></span><span></span><span></span>
-      </label>
-      <div class="navlinks">
-        <a href="#about">학회 소개</a>
-        <a href="#curriculum">커리큘럼</a>
-        <a href="#operation">운영 방식</a>
-        <a href="#budget">예산</a>
-        <a href="#completion">수료 기준</a>
-        <a href="#archive">자료실</a>
-        <a href="#contact">문의</a>
+      <div class="nav-right">
+        <div class="navlinks-main">
+          <a href="#about">학회 소개</a>
+          <a href="#curriculum">커리큘럼</a>
+          <a href="#operation">운영 방식</a>
+          <a href="#completion">수료 기준</a>
+          <a href="#contact">문의</a>
+        </div>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-burger" aria-label="더보기 메뉴 열기 (예산 · 자료실)">
+          <span></span><span></span><span></span>
+        </label>
+        <div class="navlinks-more">
+          <a href="#about" class="only-mobile">학회 소개</a>
+          <a href="#curriculum" class="only-mobile">커리큘럼</a>
+          <a href="#operation" class="only-mobile">운영 방식</a>
+          <a href="#completion" class="only-mobile">수료 기준</a>
+          <a href="#budget">예산</a>
+          <a href="#archive">자료실</a>
+          <a href="#contact" class="only-mobile">문의</a>
+        </div>
       </div>
     </nav>
   </div>
@@ -338,6 +367,7 @@
       <div class="week"><div class="wk">7주차</div><div><div class="wtitle">포트폴리오 구성 & 비중관리</div><div class="wdesc">여러 종목을 조합해 리스크를 관리하는 법 실습</div></div></div>
       <div class="week"><div class="wk">8주차</div><div><div class="wtitle">가상 펀드 피칭 데이</div><div class="wdesc">8주간의 결과물을 1페이지 리포트로 조립해 발표</div></div></div>
     </div>
+    <div class="curriculum-note">※ 위 8주 커리큘럼은 2기 운영 상황(SFA 통합, 지원 인원 등)에 맞춰 주차별 순서·세부 내용이 조정될 수 있습니다.</div>
 
     <div class="team-grid">
       <div class="team-card"><div class="ti">📈</div><div class="tt">투자분석팀</div><div class="td">바텀업 전략 기반 단일 기업·섹터 심층 분석</div></div>
@@ -346,6 +376,15 @@
       <div class="team-card"><div class="ti">💼</div><div class="tt">취업준비팀</div><div class="td">금융권 자소서·면접 스터디, 현직자 네트워크 활용</div></div>
     </div>
     <div class="team-note">※ 교육팀(운영진 산하)은 우수 수료자에게 조교 역할을 부여하는 형태로 별도 운영됩니다.</div>
+
+    <div class="extra-activities">
+      <div class="ea-title">이 외에도</div>
+      <div class="ea-list">
+        <span>금융권 자격증 시험 지원 (증권투자권유자문인력 등)</span>
+        <span>현직자 특강 · 네트워킹</span>
+        <span>UIC 연합 세미나 참가</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -364,41 +403,6 @@
       <div class="op-card"><div class="oi">📝</div><div class="ot">표준 워크시트</div><div class="od">제목·핵심개념·내 분석·배운 점 4단 양식으로 통일 — 8주차엔 이어 붙여 피칭덱 초안으로 활용</div></div>
       <div class="op-card"><div class="oi">🏛</div><div class="ot">UIC 네트워크 참여</div><div class="od">충청지부 세미나, 서울 금융투자협회 정기총회 등 전국 단위 네트워크에 참여</div></div>
     </div>
-  </div>
-</section>
-
-<section id="budget">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-kicker">TRANSPARENCY</div>
-      <div class="sec-title">예산 안내</div>
-      <div class="sec-sub">학회비가 어디에 쓰이는지 투명하게 공개합니다. 아래는 가편성 기준이며, 실제 지원 인원에 따라 조정됩니다.</div>
-    </div>
-    <div class="budget-wrap">
-      <div>
-        <table class="budget-table">
-          <tr><th>수입</th><th style="text-align:right">금액</th></tr>
-          <tr><td>학과(단과대) 지원금</td><td class="num">500,000원</td></tr>
-          <tr><td>부원 회비 (20명 기준)</td><td class="num">400,000원</td></tr>
-          <tr class="total"><td>총 수입</td><td class="num">900,000원</td></tr>
-        </table>
-      </div>
-      <div>
-        <table class="budget-table">
-          <tr><th>지출</th><th style="text-align:right">금액</th></tr>
-          <tr><td>정기세션 다과비 (10회)</td><td class="num">300,000원</td></tr>
-          <tr><td>가상펀드 피칭데이</td><td class="num">150,000원</td></tr>
-          <tr><td>OT · 신입환영회</td><td class="num">100,000원</td></tr>
-          <tr><td>자격증 취득 지원</td><td class="num">100,000원</td></tr>
-          <tr><td>완주자 수료증 제작</td><td class="num">45,000원</td></tr>
-          <tr><td>워크시트 인쇄 · 면접 · 홍보물 등</td><td class="num">100,000원</td></tr>
-          <tr><td>예비비</td><td class="num">105,000원</td></tr>
-          <tr class="total"><td>총 지출</td><td class="num">900,000원</td></tr>
-        </table>
-      </div>
-    </div>
-    <div class="balance-badge">✓ 수지 차액 0원 — 균형 예산으로 운영</div>
-    <div class="budget-note">※ 가편성 기준(2026.08.17 작성)이며, 2기 실제 지원 인원(SFA 통합으로 증가 예상)에 맞춰 항목별 금액이 조정될 수 있습니다.</div>
   </div>
 </section>
 
@@ -460,6 +464,41 @@
       </figure>
     </div>
     <div class="proof-note">※ 학습용으로 단순화된 자료이며, 실제 세션에서는 더 다양한 기업·지표를 다룹니다. 원본 템플릿과 정답키는 아래 자료실에서 그대로 받아볼 수 있습니다.</div>
+  </div>
+</section>
+
+<section id="budget">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">TRANSPARENCY</div>
+      <div class="sec-title">예산 안내</div>
+      <div class="sec-sub">학회비가 어디에 쓰이는지 투명하게 공개합니다. 아래는 가편성 기준이며, 실제 지원 인원에 따라 조정됩니다.</div>
+    </div>
+    <div class="budget-wrap">
+      <div>
+        <table class="budget-table">
+          <tr><th>수입</th><th style="text-align:right">금액</th></tr>
+          <tr><td>학과(단과대) 지원금</td><td class="num">500,000원</td></tr>
+          <tr><td>부원 회비 (20명 기준)</td><td class="num">400,000원</td></tr>
+          <tr class="total"><td>총 수입</td><td class="num">900,000원</td></tr>
+        </table>
+      </div>
+      <div>
+        <table class="budget-table">
+          <tr><th>지출</th><th style="text-align:right">금액</th></tr>
+          <tr><td>정기세션 다과비 (10회)</td><td class="num">300,000원</td></tr>
+          <tr><td>가상펀드 피칭데이</td><td class="num">150,000원</td></tr>
+          <tr><td>OT · 신입환영회</td><td class="num">100,000원</td></tr>
+          <tr><td>자격증 취득 지원</td><td class="num">100,000원</td></tr>
+          <tr><td>완주자 수료증 제작</td><td class="num">45,000원</td></tr>
+          <tr><td>워크시트 인쇄 · 면접 · 홍보물 등</td><td class="num">100,000원</td></tr>
+          <tr><td>예비비</td><td class="num">105,000원</td></tr>
+          <tr class="total"><td>총 지출</td><td class="num">900,000원</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="balance-badge">✓ 수지 차액 0원 — 균형 예산으로 운영</div>
+    <div class="budget-note">※ 가편성 기준(2026.08.17 작성)이며, 2기 실제 지원 인원(SFA 통합으로 증가 예상)에 맞춰 항목별 금액이 조정될 수 있습니다.</div>
   </div>
 </section>
 
@@ -547,7 +586,7 @@
   // 모바일 내비게이션: 링크 클릭 시 메뉴 자동 닫기
   (function () {
     var toggle = document.getElementById('nav-toggle');
-    var links = document.querySelectorAll('.navlinks a');
+    var links = document.querySelectorAll('.navlinks-main a, .navlinks-more a');
     if (!toggle) return;
     links.forEach(function (a) {
       a.addEventListener('click', function () { toggle.checked = false; });
