@@ -194,6 +194,10 @@
   }
   .budget-note { font-size: 12px; color: var(--gray); margin-top: 14px; line-height: 1.6; }
 
+  /* 예산·자료실: 메인 스크롤 흐름에서 완전히 제외 — 헤더 더보기(☰) 메뉴로 클릭해서 이동할 때만 나타남 */
+  #budget, #archive { display: none; }
+  #budget:target, #archive:target { display: block; }
+
   /* COMPLETION */
   .comp-flow { display: flex; align-items: center; gap: 0; flex-wrap: wrap; margin-bottom: 32px; }
   .comp-step { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; font-size: 13px; font-weight: 700; color: var(--navy); flex: 1; min-width: 180px; text-align: center; }
