@@ -224,6 +224,9 @@ section { padding: 84px 0; border-top: 1px solid var(--line); }
 .team-card .td { font-size: 12px; color: var(--gray); line-height: 1.55; }
 .team-note { font-size: 12.5px; color: var(--gray); margin-top: 16px; }
 .curriculum-note { font-size: 12.5px; color: var(--gray); margin-top: 10px; }
+.track-note { font-size: 13px; color: var(--gray); margin: 20px 0; }
+.track-note a { color: var(--crimson); font-weight: 700; }
+.track-note a:hover { text-decoration: underline; }
 .extra-activities { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--line); }
 .extra-activities .ea-title { font-weight: 700; font-size: 13px; color: var(--navy); margin-bottom: 10px; }
 .extra-activities .ea-list { display: flex; flex-wrap: wrap; gap: 8px; }
