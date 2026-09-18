@@ -103,10 +103,11 @@
   .group-card .gh .count { font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12.5px; color: var(--gray); }
   .item {
     display: flex; gap: 10px; align-items: flex-start;
-    padding: 7px 0; border-top: 1px solid var(--line);
-    font-size: 14px; cursor: pointer;
+    padding: 10px 6px; margin: 0 -6px; border-top: 1px solid var(--line); border-radius: 6px;
+    font-size: 14px; cursor: pointer; transition: background .15s ease;
   }
   .item:first-of-type { border-top: none; }
+  .item:hover { background: var(--paper); }
   .item input { margin-top: 3px; accent-color: var(--accent); width: 15px; height: 15px; flex-shrink: 0; }
   .item span { color: var(--ink); }
 
@@ -170,7 +171,7 @@
 
   .site-bar { display:flex; justify-content:space-between; align-items:center; gap:12px;
     max-width:920px; margin:0 auto 28px; padding:16px 0; border-bottom:1px solid var(--line); }
-  .site-bar a { text-decoration:none; font-weight:600; font-size:14px; }
+  .site-bar a { text-decoration:none; font-weight:600; font-size:14px; padding:8px 6px; margin:-8px -6px; border-radius:8px; transition:color .15s ease; }
   .site-bar .brand { color:var(--crimson); font-weight:700; font-size:16px; letter-spacing:-0.01em; }
   .site-bar .back { color:var(--ink-soft); }
   .site-bar a:hover { text-decoration:underline; }
