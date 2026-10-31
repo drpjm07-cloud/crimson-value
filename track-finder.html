@@ -3,11 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>트랙 파인더 | 크림슨밸류</title>
-<meta name="description" content="초급·중급·상급·취업준비팀 중 내 트랙을 확인하는 자가진단 체크리스트와 트랙별 예시 기업 20선.">
-<meta property="og:title" content="트랙 파인더 | 크림슨밸류">
-<meta property="og:description" content="내 난이도 트랙을 1분 만에 자가진단해 보세요.">
+<title>내 투자·리서치 학습 트랙 진단하기 | 크림슨밸류</title>
+<meta name="description" content="5개 문항으로 확인하는 나의 학습 출발점. 초급·중급·상급·취업준비 트랙을 제안합니다.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CRIMSON VALUE">
+<meta property="og:title" content="내 투자·리서치 학습 트랙 진단하기 | 크림슨밸류">
+<meta property="og:description" content="5개 문항으로 확인하는 나의 학습 출발점. 초급·중급·상급·취업준비 트랙을 제안합니다.">
+<meta property="og:image" content="https://crimsonvalue.com/assets/img/og-cover.png">
 <meta property="og:url" content="https://crimsonvalue.com/track-finder.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="내 투자·리서치 학습 트랙 진단하기 | 크림슨밸류">
+<meta name="twitter:description" content="5개 문항으로 확인하는 나의 학습 출발점. 초급·중급·상급·취업준비 트랙을 제안합니다.">
+<meta name="twitter:image" content="https://crimsonvalue.com/assets/img/og-cover.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
   :root {
@@ -169,19 +176,31 @@
     color: var(--gray); font-size: 12px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
   }
 
-  .site-bar { display:flex; justify-content:space-between; align-items:center; gap:12px;
+  .site-bar { display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap;
     max-width:920px; margin:0 auto 28px; padding:16px 0; border-bottom:1px solid var(--line); }
   .site-bar a { text-decoration:none; font-weight:600; font-size:14px; padding:8px 6px; margin:-8px -6px; border-radius:8px; transition:color .15s ease; }
   .site-bar .brand { color:var(--crimson); font-weight:700; font-size:16px; letter-spacing:-0.01em; }
-  .site-bar .back { color:var(--ink-soft); }
-  .site-bar a:hover { text-decoration:underline; }
+  .site-bar .links { display:flex; gap:4px 18px; flex-wrap:wrap; }
+  .site-bar .links a { color:var(--ink-soft); }
+  .site-bar a:hover { text-decoration:underline; color:var(--crimson); }
+
+  .next-step-note {
+    margin-top: 20px; background: var(--paper-raised); border: 1px solid var(--line); border-left: 4px solid var(--gold-text);
+    border-radius: 8px; padding: 16px 18px; font-size: 13.5px; color: var(--ink-soft);
+  }
+  .next-step-note a { color: var(--crimson); font-weight: 700; }
+  .next-step-note a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
 
 <nav class="site-bar" aria-label="사이트 이동">
-  <a class="brand" href="/">CRIMSON VALUE</a>
-  <a class="back" href="/">← 학회 소개로 돌아가기</a>
+  <a class="brand" href="index.html">CRIMSON VALUE</a>
+  <div class="links">
+    <a href="index.html#about">← 크림슨밸류 소개</a>
+    <a href="index.html#curriculum">9주 커리큘럼</a>
+    <a href="index.html#faq">문의·공식 채널</a>
+  </div>
 </nav>
 
 <div class="wrap">
@@ -189,7 +208,7 @@
   <header class="top">
     <div class="eyebrow">Crimson Value · 2026-2학기</div>
     <h1 class="title">트랙 파인더</h1>
-    <p class="lede">내가 초급·중급·상급·취업준비팀 중 어디에 해당하는지 확인하는 자가진단 체크리스트와, 각 트랙에서 실제로 예시 리포트를 써볼 만한 기업 20곳씩을 정리했습니다. 해당된다고 생각하는 문항에 체크하면 아래 추천 트랙이 즉시 바뀝니다.</p>
+    <p class="lede">초급·중급·상급·취업준비 트랙 중 현재의 학습 출발점을 확인하는 자가진단 체크리스트입니다. 문항을 체크하면 참고용 추천 트랙이 즉시 바뀝니다.</p>
   </header>
 
   <div class="status-bar" id="statusBar">
@@ -205,7 +224,7 @@
       <span class="sect-num">01</span>
       <h2 class="sect-title">자가진단 체크리스트</h2>
     </div>
-    <p class="sect-note">지금 나에게 해당되는 문항에 모두 체크하세요. 정답이 있는 시험이 아니라 현재 위치를 확인하는 도구이며, 최종 트랙 배정은 OT·상담을 통해 운영진과 함께 확정합니다.</p>
+    <p class="sect-note">지금 나에게 해당되는 문항에 모두 체크하세요. 정답이 있는 시험이 아니라 현재 위치를 확인하는 도구이며, 결과는 팀 배정이나 참여 자격을 결정하지 않는 참고 정보입니다.</p>
 
     <div class="group-grid" id="groupGrid"></div>
 
@@ -219,6 +238,10 @@
         판정 기준 — 트랙별 5문항 중 3개 이상 체크되면 그 트랙에 도달한 것으로 봅니다. 두 개 이상의 트랙이 동시에 기준을 채우면 더 높은 트랙을 추천하고, 아무 트랙도 3개를 채우지 못하면 체크 수가 가장 많은 트랙 중 더 낮은(안전한) 트랙을 기본값으로 안내합니다.
       </div>
     </div>
+
+    <div class="next-step-note">
+      추천 트랙을 확인했다면, <a href="index.html#curriculum">9주 커리큘럼과 활동 팀</a>도 살펴보세요. 현재 트랙에서 참고할 수 있는 분석 예시는 <a href="archive.html#research-archive">리서치 아카이브</a>에서 준비 중입니다.
+    </div>
   </section>
 
   <section id="companies">
@@ -226,12 +249,12 @@
       <span class="sect-num">02</span>
       <h2 class="sect-title">트랙별 예시 기업 20선</h2>
     </div>
-    <p class="sect-note">각 트랙에서 예시 리포트를 써보기 좋은 기업과 그 이유입니다. 사업 구조의 단순함/복잡함, 공시에서 실제로 확인되는 정보의 수준을 기준으로 골랐습니다 — 특정 종목을 매수·매도하라는 의미가 아닙니다.</p>
+    <p class="sect-note">학습용으로 기업 분석을 연습해볼 수 있는 예시 기업과 선정 이유입니다. 사업 구조의 단순함·복잡함과 공시 정보의 수준을 기준으로 정리했으며, 특정 종목의 매수·매도를 권유하지 않습니다.</p>
 
     <div class="tabs" id="tabsWrap"></div>
     <div id="panelsWrap"></div>
 
-    <p class="foot-note">티커(종목코드)는 작성 시점 기준이며, 상장폐지·종목코드 변경·사명 변경이 수시로 발생합니다. 리포트를 쓰기 전 HTS·증권사 앱에서 최신 코드와 상장 상태를 반드시 다시 확인하세요. (LIG넥스원은 2025년 LIG디펜스앤에어로스페이스로 사명을 변경했습니다 — 이 페이지는 새 사명을 사용합니다.)</p>
+    <p class="foot-note">티커(종목코드)는 작성 시점 기준이며 상장 상태, 종목코드, 사명은 변경될 수 있습니다. 분석 전에는 거래소 공시 등 공식 출처에서 최신 정보를 확인하세요.</p>
   </section>
 
   <footer>

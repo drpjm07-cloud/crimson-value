@@ -39,7 +39,7 @@ nav { position: relative; display: flex; align-items: center; justify-content: s
 .navlinks-main a:hover { color: var(--crimson); }
 
 .nav-toggle { display: none; }
-.nav-burger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; margin: -8px; }
+.nav-burger { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer; width: 44px; height: 44px; margin: -8px; }
 .nav-burger span { width: 22px; height: 2px; border-radius: 2px; background: var(--navy); display: block; }
 
 /* 더보기 드롭다운: 예산 · 자료실 — 데스크톱에서도 이 버튼을 눌러야만 나타남 */
@@ -239,6 +239,64 @@ section { padding: 84px 0; border-top: 1px solid var(--line); }
 .extra-activities .ea-list { display: flex; flex-wrap: wrap; gap: 8px; }
 .extra-activities .ea-list span { font-size: 12px; color: var(--gray); background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 6px 14px; }
 
+.uic-card {
+  background: #fff; border: 1px solid var(--line2); border-radius: 10px;
+  padding: 26px 30px; margin-top: 30px; display: flex; gap: 20px; align-items: flex-start;
+}
+.uic-card .ui-mark {
+  width: 44px; height: 44px; border-radius: 50%; border: 1.4px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; color: var(--crimson); font-size: 12px; letter-spacing: 0.2px; flex-shrink: 0;
+}
+.uic-card .ut { font-weight: 800; font-size: 15.5px; color: var(--navy); margin-bottom: 8px; }
+.uic-card .ud { font-size: 13px; color: var(--gray); line-height: 1.65; margin-bottom: 8px; }
+.uic-card .uy { font-size: 12px; color: var(--gold-text); font-weight: 700; }
+
+/* NOTE CARD — 안내/설명용 콜아웃 (트랙-팀 관계, 8주/9주 구분, 예산 상태 등 공용) */
+.note-card {
+  background: #fff; border: 1px solid var(--line2); border-left: 4px solid var(--gold);
+  border-radius: 8px; padding: 18px 22px; margin: 24px 0;
+}
+.note-card .nc-title { font-weight: 800; font-size: 14.5px; color: var(--navy); margin-bottom: 8px; }
+.note-card p { font-size: 13px; color: var(--gray); line-height: 1.6; margin-bottom: 6px; }
+.note-card p:last-child { margin-bottom: 0; }
+.note-card a.nc-link { display: inline-block; margin-top: 10px; font-weight: 700; color: var(--crimson); }
+.note-card a.nc-link:hover { text-decoration: underline; }
+
+/* FAQ */
+.channel-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; font-size: 13px; }
+.channel-table th { text-align: left; font-size: 11px; letter-spacing: 1px; color: var(--gray); font-weight: 700; padding: 8px 10px; border-bottom: 1.5px solid var(--navy); }
+.channel-table td { padding: 10px; border-bottom: 1px solid var(--line); color: #3a372f; }
+.channel-table td a { color: var(--crimson); font-weight: 700; }
+.channel-table td a:hover { text-decoration: underline; }
+.faq-list { display: flex; flex-direction: column; gap: 10px; }
+.faq-item { background: #fff; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.faq-item summary {
+  list-style: none; cursor: pointer; padding: 16px 20px; font-weight: 700; font-size: 14.5px; color: var(--navy);
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: '+'; font-size: 18px; color: var(--gray); font-weight: 400; flex-shrink: 0; }
+.faq-item[open] summary::after { content: '−'; }
+.faq-item summary:hover { color: var(--crimson); }
+.faq-item .faq-a { padding: 0 20px 18px; font-size: 13.5px; color: var(--gray); line-height: 1.65; }
+
+/* RESEARCH ARCHIVE (구조만 — 실제 리포트 준비 전) */
+.ra-status {
+  display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 800; letter-spacing: 0.5px;
+  color: var(--gold-text); background: rgba(201,162,39,0.12); border: 1px solid rgba(201,162,39,0.35);
+  border-radius: 6px; padding: 5px 12px; margin-bottom: 14px;
+}
+.ra-stages { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-top: 10px; }
+.ra-stage { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 18px 16px; }
+.ra-stage .rs-num { font-weight: 800; font-size: 12px; color: var(--gold-text); margin-bottom: 8px; }
+.ra-stage .rs-t { font-weight: 700; font-size: 13.5px; color: var(--navy); }
+.ra-disclaimer { font-size: 11.5px; color: var(--gray); margin-top: 18px; line-height: 1.6; border-top: 1px dashed var(--line); padding-top: 12px; }
+.news-placeholder {
+  border: 1.5px dashed var(--line2); border-radius: 8px; padding: 28px 24px; text-align: center;
+  color: var(--gray); font-size: 13.5px; margin-top: 18px;
+}
+
 /* OPERATION */
 .op-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .op-card { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 22px 20px; }
@@ -247,19 +305,7 @@ section { padding: 84px 0; border-top: 1px solid var(--line); }
 .op-card .od { font-size: 12.5px; color: var(--gray); line-height: 1.6; }
 
 /* BUDGET */
-.budget-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
-.budget-wrap > div { overflow-x: auto; }
-.budget-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-.budget-table th { text-align: left; font-size: 11px; letter-spacing: 1px; color: var(--gray); font-weight: 700; padding: 8px 0; border-bottom: 1.5px solid var(--navy); }
-.budget-table td { padding: 9px 0; border-bottom: 1px solid var(--line); color: #3a372f; }
-.budget-table td.num { text-align: right; font-weight: 600; color: var(--navy); }
-.budget-table tr.total td { font-weight: 800; color: var(--navy); border-bottom: none; border-top: 1.5px solid var(--navy); padding-top: 12px; }
-.balance-badge {
-  margin-top: 18px; display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(201,162,39,0.1); border: 1px solid rgba(201,162,39,0.4);
-  border-radius: 6px; padding: 8px 16px; font-size: 12.5px; font-weight: 700; color: #7a5f14;
-}
-.budget-note { font-size: 12px; color: var(--gray); margin-top: 14px; line-height: 1.6; }
+.budget-note { font-size: 12px; color: var(--gray); margin-top: 20px; line-height: 1.6; }
 
 /* COMPLETION */
 .comp-flow { display: flex; align-items: center; gap: 0; flex-wrap: wrap; margin-bottom: 32px; }
@@ -317,7 +363,7 @@ footer { padding: 56px 0 70px; border-top: 1px solid var(--line); }
 }
 @media (max-width: 760px) {
   .stat-row, .op-grid, .team-grid, .archive-grid, .proof-grid { grid-template-columns: repeat(2,1fr); }
-  .about-grid, .budget-wrap { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
   .hero h1 { font-size: 32px; }
   .hero-cta { flex-direction: column; align-items: stretch; }
   .hero-cta .btn { width: 100%; }
@@ -333,9 +379,12 @@ footer { padding: 56px 0 70px; border-top: 1px solid var(--line); }
   .outcome-desc { max-width: 100%; }
   .foot-row { text-align: center; justify-content: center; }
   .foot-links { justify-content: center; }
+  .uic-card { flex-direction: column; align-items: center; text-align: center; }
+  .ra-stages { grid-template-columns: repeat(2,1fr); }
+  .channel-table { font-size: 12.5px; }
 }
 @media (max-width: 480px) {
-  .stat-row, .op-grid, .team-grid, .archive-grid, .proof-grid { grid-template-columns: 1fr; }
+  .stat-row, .op-grid, .team-grid, .archive-grid, .proof-grid, .ra-stages { grid-template-columns: 1fr; }
   .wrap { padding: 0 18px; }
   .hero h1 { font-size: 27px; }
   .hero p { font-size: 15px; }
