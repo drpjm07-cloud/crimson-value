@@ -24,14 +24,15 @@
 <meta name="twitter:description" content="기업 분석과 리서치를 중심으로 성장하는 고려대학교 세종캠퍼스 가치투자 학회입니다.">
 <meta name="twitter:image" content="https://crimsonvalue.com/assets/img/og-cover.png">
 
-<!-- 파비콘: 브랜드 CV 모노그램 (navy 원 + gold 링 + crimson 텍스트), 별도 파일 없이 인라인 SVG -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%231B2340' stroke='%23C9A227' stroke-width='3'/%3E%3Ctext x='32' y='41' font-family='Arial,Helvetica,sans-serif' font-weight='800' font-size='22' fill='%238C1D2B' text-anchor='middle'%3ECV%3C/text%3E%3C/svg%3E">
+<!-- 파비콘: 크림슨밸류 호랑이 로고(얼굴 확대) -->
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/favicon.png">
 
 <!-- 웹폰트: Pretendard (정적 HTML/빌드 단계가 없는 스택이라 npm 번들 대신 공식 CDN 배포본을 사용 — 로컬 폰트 설치 여부와 무관하게 동일하게 렌더링됩니다) -->
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" as="style" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
 
-<link rel="stylesheet" href="assets/css/site.css?v=20261106">
+<link rel="stylesheet" href="assets/css/site.css?v=20261106-3">
 </head>
 <body id="top">
 <a class="skip-link" href="#main">본문 바로가기</a>
@@ -39,12 +40,12 @@
 <header>
   <div class="wrap">
     <nav aria-label="주요 메뉴">
-      <a class="logo" href="#top" aria-label="크림슨밸류 처음으로"><span class="mark">CV</span> CRIMSON VALUE</a>
+      <a class="logo" href="#top" aria-label="크림슨밸류 처음으로"><img class="logo-img" src="assets/img/logo-sm.png" alt="" width="58" height="44"><span>CRIMSON VALUE</span></a>
       <div class="nav-right">
         <div class="navlinks-main">
           <a href="#about">학회소개</a>
           <a href="#curriculum">커리큘럼·트랙</a>
-          <a href="#proof">활동·리포트</a>
+          <a href="#activities">활동</a>
           <a href="#faq">문의·모집</a>
         </div>
         <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="더보기 메뉴 열기 (트랙 파인더 · 자료실 · 예산)">
@@ -54,7 +55,7 @@
         <div class="navlinks-more">
           <a href="#about" class="only-mobile">학회소개</a>
           <a href="#curriculum" class="only-mobile">커리큘럼·트랙</a>
-          <a href="#proof" class="only-mobile">활동·리포트</a>
+          <a href="#activities" class="only-mobile">활동</a>
           <a href="#faq" class="only-mobile">문의·모집</a>
           <a href="track-finder.html">트랙 파인더</a>
           <a href="archive.html">자료실</a>
@@ -163,17 +164,18 @@
 
     <div class="progress-note">2026-2학기 2기 진행 현황 · <span>7주차까지 완료</span> (다음은 8주차)</div>
     <div class="weeks">
-      <div class="week is-start is-done"><div class="wk">1주차<span class="wst">완료</span></div><div><div class="wtitle">OT 및 기업 선정</div><div class="wdesc">오리엔테이션과 함께 9주간 이어갈 관심기업을 팀별로 선정 (관통형 리서치 시작)</div></div></div>
-      <div class="week is-done"><div class="wk">2주차<span class="wst">완료</span></div><div><div class="wtitle">비즈니스 모델 분석</div><div class="wdesc">선정한 기업의 사업구조와 수익모델 분석 — 리포트 '기업개요' 파트</div></div></div>
+      <div class="week is-start is-done"><div class="wk">1주차<span class="wst">완료</span></div><div><div class="wtitle">OT 및 기업 선정</div><div class="wdesc">오리엔테이션 후 생활 속에서 아는 회사를 찾아 후보 3개를 고르고, 상장 여부·한 문장 설명 가능 여부·자료 확보 가능성 같은 기준으로 걸러 9주간 이어갈 관심기업 1개를 정합니다. (관통형 리서치 시작)</div><div class="wq">핵심 질문 · 나는 오늘 하루, 어떤 회사에 돈을 썼을까?</div></div></div>
+      <div class="week is-done"><div class="wk">2주차<span class="wst">완료</span></div><div><div class="wtitle">비즈니스 모델 분석</div><div class="wdesc">누구에게·무엇을·어떻게 받나·얼마나 자주, 네 칸으로 선정한 기업의 비즈니스 모델을 한 장에 그리고 비용이 어디에 많이 들지 추정해 봅니다. 리포트 '기업개요' 파트의 재료가 됩니다.</div><div class="wq">핵심 질문 · 이 회사는 누구에게, 무엇을 팔아서, 어떻게 돈을 받을까?</div></div></div>
       <div class="week is-done"><div class="wk">3주차<span class="wst">완료</span></div><div><div class="wtitle">산업 분석</div><div class="wdesc">소속 산업의 구조와 경쟁 환경 분석</div></div></div>
-      <div class="week is-done"><div class="wk">4주차<span class="wst">완료</span></div><div><div class="wtitle">재무제표 기초</div><div class="wdesc">재무상태표·손익계산서 등 기초 재무제표를 읽고 관심기업에 적용</div></div></div>
-      <div class="week is-done"><div class="wk">5주차<span class="wst">완료</span></div><div><div class="wtitle">밸류에이션 1</div><div class="wdesc">기업가치 평가 방법론 1단계 적용</div></div></div>
-      <div class="week is-done"><div class="wk">6주차<span class="wst">완료</span></div><div><div class="wtitle">밸류에이션 2</div><div class="wdesc">기업가치 평가 방법론 2단계로 심화</div></div></div>
-      <div class="week is-done"><div class="wk">7주차<span class="wst">완료</span></div><div><div class="wtitle">경쟁사 비교</div><div class="wdesc">동종업계 경쟁사와 비교 분석</div></div></div>
-      <div class="week"><div class="wk">8주차<span class="wst">예정</span></div><div><div class="wtitle">리스크 분석</div><div class="wdesc">산업·재무·경영 리스크를 정리하고 투자 판단에 반영</div></div></div>
-      <div class="week is-end"><div class="wk">9주차<span class="wst">예정</span></div><div><div class="wtitle">리서치 발표</div><div class="wdesc">9주간의 분석을 하나의 리서치 리포트로 완성해 발표</div></div></div>
+      <div class="week is-done"><div class="wk">4주차<span class="wst">완료</span></div><div><div class="wtitle">재무제표 기초</div><div class="wdesc">재무상태표·손익계산서 등 기초 재무제표를 읽고, 매출·영업이익·순이익의 3년 흐름과 영업이익률로 실적이 늘고 있는지 줄고 있는지 판단합니다.</div><div class="wq">핵심 질문 · 이 회사, 돈을 잘 벌고 있을까? 그리고 그게 나아지고 있을까?</div></div></div>
+      <div class="week is-done"><div class="wk">5주차<span class="wst">완료</span></div><div><div class="wtitle">밸류에이션 1</div><div class="wdesc">시가총액(주가 × 발행 주식 수)으로 기업의 규모를 가늠하고, 기업가치를 평가하는 기본 개념을 관심기업에 적용합니다.</div><div class="wq">핵심 질문 · 이 회사는 얼마짜리 회사일까?</div></div></div>
+      <div class="week is-done"><div class="wk">6주차<span class="wst">완료</span></div><div><div class="wtitle">밸류에이션 2</div><div class="wdesc">PER·PBR 같은 지표로 지금의 가격이 기업의 실력에 비해 비싼지 싼지 따져 보고, 그렇게 보이는 이유를 근거 있는 가설로 세웁니다.</div><div class="wq">핵심 질문 · 지금 이 가격은 이 회사의 실력에 비해 비싼 편일까, 싼 편일까?</div></div></div>
+      <div class="week is-done"><div class="wk">7주차<span class="wst">완료</span></div><div><div class="wtitle">경쟁사 비교</div><div class="wdesc">같은 고객을 두고 실제로 경쟁하는 동종업계 회사 3곳을 골라, 규모·영업이익률·가치 지표를 나란히 놓고 순위와 차이의 이유를 비교합니다.</div><div class="wq">핵심 질문 · 같은 업종에서 우리 회사는 몇 번째일까?</div></div></div>
+      <div class="week"><div class="wk">8주차<span class="wst">예정</span></div><div><div class="wtitle">리스크 분석</div><div class="wdesc">산업·재무·경영 리스크를 정리하고, 반대 의견을 스스로 만들어 내 판단이 틀렸다는 걸 알게 될 신호를 미리 정해 둡니다.</div><div class="wq">핵심 질문 · 무엇을 보면 내가 틀렸다는 걸 알 수 있을까?</div></div></div>
+      <div class="week is-end"><div class="wk">9주차<span class="wst">예정</span></div><div><div class="wtitle">리서치 발표</div><div class="wdesc">결론을 먼저 쓰고 근거를 뒤에 두는 방식으로, 회사 개요·사업 구조·실적·경쟁 위치·결론과 근거·리스크를 한 편의 리서치 리포트로 정리해 발표합니다.</div></div></div>
     </div>
     <div class="curriculum-note">※ 위 9주 커리큘럼은 2026-2학기(2기) 확정 운영안입니다. 매주 오프라인으로 진행하며, 개념 브리핑과 팀 실습을 병행합니다.</div>
+    <div class="curriculum-note">매주 워크북을 채우며 내 기업에 대한 분석이 쌓이고, 그 기록이 마지막 리서치 리포트의 재료가 됩니다. 확인하지 못한 내용은 아는 척하지 않고 "확인 필요"로 남기는 것도 분석의 일부입니다.</div>
 
     <div class="outcome-card">
       <div class="outcome-visual">
@@ -266,7 +268,7 @@
       <div class="comp-step">학기 중 UIC 관련 활동 1회 이상 참여</div>
     </div>
     <div class="comp-cert">
-      <div class="cseal">CV</div>
+      <div class="cseal"><img src="assets/img/favicon.png" alt="" width="40" height="40"></div>
       <div>
         <div class="ct">지도교수 · 학회장 공동 명의로 발급</div>
         <div class="cd">UIC 명칭·인증은 포함하지 않습니다 — 크림슨밸류 고유 활동으로서의 정체성을 지키기 위함입니다.</div>
@@ -275,40 +277,21 @@
   </div>
 </section>
 
-<section id="proof">
+<section id="activities">
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-kicker">ACTIVITY · REPORT</div>
-      <h2 class="sec-title">활동·리포트</h2>
-      <div class="sec-sub">실제 실습 자료입니다. 학습용 워크시트 예시이며, 2학기에는 이러한 실습을 9주간 이어가며 관심기업 1개를 분석합니다.</div>
+      <div class="sec-kicker">ACTIVITIES</div>
+      <h2 class="sec-title">주요 활동</h2>
+      <div class="sec-sub">2기 정규 세션에서 진행한 활동입니다.</div>
     </div>
-    <div class="proof-grid">
-      <figure class="proof-item">
-        <img src="assets/img/w1-balance-sheet.png" alt="삼성전자 재무상태표(연결) 실습 워크시트 캡처 — 1주차 3-Statement 연결 실습, 대차검증 결과">
-        <figcaption><b>1주차 · 재무상태표(연결)</b>세 재무제표를 수식으로 잇는 3-Statement 연결 실습, 대차검증까지 확인</figcaption>
-      </figure>
-      <figure class="proof-item">
-        <img src="assets/img/w1-income-statement.png" alt="삼성전자 손익계산서(연결) 실습 워크시트 캡처 — 1주차 3-Statement 연결 실습">
-        <figcaption><b>1주차 · 손익계산서(연결)</b>매출액부터 당기순이익까지 손익 구조를 확인</figcaption>
-      </figure>
-      <figure class="proof-item">
-        <img src="assets/img/w1-cashflow-statement.png" alt="삼성전자 현금흐름표(연결) 실습 워크시트 캡처 — 1주차 3-Statement 연결 실습">
-        <figcaption><b>1주차 · 현금흐름표(연결)</b>이익과 현금의 차이를 영업·투자·재무활동으로 분해</figcaption>
-      </figure>
-      <figure class="proof-item">
-        <img src="assets/img/w3-accruals.png" alt="이익의 질(Accruals) 비교 실습 워크시트 캡처 — 3주차, 기업 A·B의 Accruals Ratio 비교">
-        <figcaption><b>3주차 · 이익의 질(Accruals)</b>순이익 대비 영업현금흐름으로 회계이익의 질을 진단</figcaption>
-      </figure>
-      <figure class="proof-item">
-        <img src="assets/img/w4-wacc.png" alt="WACC 계산기 실습 워크시트 캡처 — 4주차, CAPM 기반 자본비용 산출">
-        <figcaption><b>4주차 · WACC 계산기</b>CAPM으로 자기자본비용을 구하고 가중평균자본비용 산출</figcaption>
-      </figure>
-      <figure class="proof-item">
-        <img src="assets/img/w5-eps-sensitivity.png" alt="EPS 민감도 분석 실습 워크시트 캡처 — 5주차, 환율·가동률 변수에 따른 EPS·목표주가 변화">
-        <figcaption><b>5주차 · EPS 민감도 분석</b>환율·가동률 변수를 흔들어 EPS·목표주가 변화를 확인</figcaption>
-      </figure>
+    <div class="act-grid">
+      <div class="act-card"><div class="ak">내 기업 선정</div><div class="ad">생활 속에서 관심 기업을 찾아, 한 학기 동안 이어서 분석할 기업 1개를 정했습니다.</div></div>
+      <div class="act-card"><div class="ak">비즈니스 모델</div><div class="ad">이 회사가 누구에게 무엇을 팔아 어떻게 돈을 버는지 한 장으로 정리했습니다.</div></div>
+      <div class="act-card"><div class="ak">재무제표 읽기</div><div class="ad">관심 기업의 재무제표를 읽고 실적이 어느 방향으로 가고 있는지 확인했습니다.</div></div>
+      <div class="act-card"><div class="ak">경쟁사·밸류에이션</div><div class="ad">같은 업종 경쟁사와 규모·지표를 나란히 놓고, 기업가치를 어떻게 평가하는지 익혔습니다.</div></div>
+      <div class="act-card"><div class="ak">팀 실습·공유</div><div class="ad">개념 브리핑 뒤에 팀별로 실습하고, 팀원의 분석을 서로 공유하며 질문했습니다.</div></div>
+      <div class="act-card"><div class="ak">뉴스클리핑</div><div class="ad">뉴스를 읽고 분석하는 챌린지로 시장과 산업을 보는 습관을 만들고 있습니다.</div></div>
     </div>
-    <div class="proof-note">※ 학습용으로 단순화된 자료이며, 실제 세션에서는 더 다양한 기업·지표를 다룹니다. 원본 템플릿과 정답키는 우측 상단 ☰ 메뉴의 자료실에서 받아볼 수 있으며, 기업 선정부터 최종 발표까지의 리서치 과정은 자료실의 리서치 아카이브에서 준비 중입니다.</div>
   </div>
 </section>
 

@@ -47,7 +47,7 @@ header {
 }
 nav { position: relative; display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
 .logo { display: flex; align-items: center; gap: 10px; min-height: 44px; font-weight: 800; letter-spacing: 1px; font-size: 16px; color: var(--navy); }
-.logo .mark { width: 30px; height: 30px; border-radius: 50%; border: 1.4px solid var(--gold); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: var(--crimson); }
+.logo-img { height: 44px; width: auto; display: block; }
 
 /* 오른쪽 그룹: 기본 메뉴(항상 노출) + 더보기 버튼(예산·자료실 전용) */
 .nav-right { display: flex; align-items: center; gap: 22px; }
@@ -187,6 +187,7 @@ section { padding: 84px 0; border-top: 1px solid var(--line); }
 .week.is-start .wk, .week.is-end .wk { color: var(--crimson); }
 .week .wtitle { font-weight: 700; font-size: 15px; color: var(--navy); }
 .week .wdesc { font-size: 13px; color: var(--gray); margin-top: 3px; }
+.week .wq { font-size: 12.5px; font-weight: 700; color: var(--crimson); margin-top: 8px; line-height: 1.5; }
 
 .outcome-card {
   display: flex; align-items: center; gap: 36px;
@@ -392,16 +393,16 @@ section { padding: 84px 0; border-top: 1px solid var(--line); }
   background: var(--navy);
   border-radius: 10px; padding: 26px 30px; color: #fff;
 }
-.comp-cert .cseal { width: 52px; height: 52px; border-radius: 50%; border: 1.3px solid var(--gold); display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--gold); flex-shrink: 0; }
+.comp-cert .cseal { width: 56px; height: 56px; border-radius: 50%; border: 1.3px solid var(--gold); background: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; }
+.comp-cert .cseal img { width: 40px; height: 40px; display: block; }
 .comp-cert .ct { font-weight: 700; font-size: 15px; margin-bottom: 4px; }
 .comp-cert .cd { font-size: 12.5px; color: #cfc9d8; }
 
-/* PROOF GALLERY */
-.proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-.proof-item img { width: 100%; display: block; border-radius: 8px; border: 1px solid var(--line2); box-shadow: 0 10px 24px rgba(0,0,0,0.06); }
-.proof-item figcaption { font-size: 12.5px; color: var(--gray); margin-top: 10px; line-height: 1.5; }
-.proof-item figcaption b { display: block; color: var(--navy); font-size: 13px; margin-bottom: 2px; }
-.proof-note { font-size: 12px; color: var(--gray); margin-top: 26px; line-height: 1.6; }
+/* ACTIVITIES — 활동 키워드 + 설명 */
+.act-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.act-card { background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--crimson); border-radius: 8px; padding: 22px 20px; }
+.act-card .ak { font-weight: 800; font-size: 17px; color: var(--navy); letter-spacing: -0.3px; margin-bottom: 8px; }
+.act-card .ad { font-size: 13px; color: var(--gray); line-height: 1.65; }
 
 /* ARCHIVE */
 .archive-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
@@ -437,7 +438,7 @@ footer { padding: 56px 0 70px; border-top: 1px solid var(--line); }
   .archive-grid { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 760px) {
-  .stat-row, .op-grid, .team-grid, .archive-grid, .proof-grid, .staff-grid { grid-template-columns: repeat(2,1fr); }
+  .stat-row, .op-grid, .team-grid, .archive-grid, .act-grid, .staff-grid { grid-template-columns: repeat(2,1fr); }
   .thread-flow { flex-direction: column; gap: 8px; }
   .thread-step { min-width: 0; }
   .thread-arrow { justify-content: center; padding: 0; transform: rotate(90deg); }
@@ -464,7 +465,7 @@ footer { padding: 56px 0 70px; border-top: 1px solid var(--line); }
   .channel-table { font-size: 12.5px; }
 }
 @media (max-width: 480px) {
-  .stat-row, .op-grid, .team-grid, .archive-grid, .proof-grid, .ra-stages, .staff-grid { grid-template-columns: 1fr; }
+  .stat-row, .op-grid, .team-grid, .archive-grid, .act-grid, .ra-stages, .staff-grid { grid-template-columns: 1fr; }
   .weeks { padding-left: 26px; }
   .week { grid-template-columns: 62px 1fr; gap: 12px; }
   .week::before { left: -26px; }
