@@ -6,13 +6,8 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://crimsonvalue.com/archive.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://crimsonvalue.com/budget.html</loc>
+    <loc>https://crimsonvalue.com/track-finder.html</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.8</priority>
   </url>
 </urlset>

@@ -12,9 +12,10 @@
 
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" as="style" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
-<link rel="stylesheet" href="assets/css/site.css?v=20261031">
+<link rel="stylesheet" href="assets/css/site.css?v=20261031-2">
 </head>
 <body>
+<a class="skip-link" href="#main">본문 바로가기</a>
 
 <header>
   <div class="wrap back-bar">
@@ -22,11 +23,12 @@
   </div>
 </header>
 
+<main id="main">
 <section style="border-top:none; padding-top:56px;" id="archive">
   <div class="wrap">
     <div class="sec-head">
       <div class="sec-kicker">ARCHIVE</div>
-      <div class="sec-title">자료실</div>
+      <h1 class="sec-title">자료실</h1>
       <div class="sec-sub">학습을 위해 참고할 수 있는 가이드와 실습 템플릿을 안내합니다.</div>
     </div>
 
@@ -38,42 +40,36 @@
 
     <div class="archive-grid">
       <div class="archive-card">
-        <div class="ai">📘</div>
         <div class="at">8주 학습 가이드</div>
         <div class="am">PDF · 약 1.2MB</div>
         <div class="ad">매크로분석팀·투자분석팀 주차별 학습 목표, 필수/선택 과제 전체 안내</div>
         <a class="dl" href="assets/docs/크림슨밸류_연구회_8주_학습가이드.pdf" download>PDF 다운로드 ↓</a>
       </div>
       <div class="archive-card">
-        <div class="ai">📊</div>
         <div class="at">3-Statement 연결 정답키</div>
         <div class="am">XLSX · 약 14KB</div>
         <div class="ad">1주차 재무제표 3표(재무상태표·손익계산서·현금흐름표) 연결 실습 정답키</div>
         <a class="dl" href="assets/docs/삼성전자_3Statement_연결_정답키.xlsx" download>XLSX 다운로드 ↓</a>
       </div>
       <div class="archive-card">
-        <div class="ai">📗</div>
         <div class="at">이익의 질(Accruals) 템플릿</div>
         <div class="am">XLSX · 약 9KB · 학생용</div>
         <div class="ad">3주차 Accruals Ratio 계산 실습 템플릿 — 기업 A·B 비교</div>
         <a class="dl" href="assets/docs/투자분석_3주차_이익의질Accruals_템플릿(학생용).xlsx" download>XLSX 다운로드 ↓</a>
       </div>
       <div class="archive-card">
-        <div class="ai">📈</div>
         <div class="at">WACC 계산 템플릿</div>
         <div class="am">XLSX · 약 9KB · 학생용</div>
         <div class="ad">4주차 CAPM 기반 자기자본비용·WACC 산출 실습 템플릿</div>
         <a class="dl" href="assets/docs/투자분석_4주차_WACC_템플릿(학생용).xlsx" download>XLSX 다운로드 ↓</a>
       </div>
       <div class="archive-card">
-        <div class="ai">📉</div>
         <div class="at">EPS 민감도 템플릿</div>
         <div class="am">XLSX · 약 9KB · 학생용</div>
         <div class="ad">5주차 환율·가동률 변수에 따른 EPS·목표주가 민감도 실습 템플릿</div>
         <a class="dl" href="assets/docs/투자분석_5주차_EPS민감도_템플릿(학생용).xlsx" download>XLSX 다운로드 ↓</a>
       </div>
       <div class="archive-card">
-        <div class="ai">🌐</div>
         <div class="at">유동성 vs S&P500 데이터</div>
         <div class="am">XLSX · 약 17KB</div>
         <div class="ad">매크로분석팀 1주차 — 유동성 지표 3종과 S&P500 비교 차트 및 원본 데이터</div>
@@ -88,15 +84,48 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="sec-kicker">RESEARCH ARCHIVE</div>
-      <div class="sec-title">리서치 아카이브</div>
+      <h2 class="sec-title">리서치 아카이브</h2>
       <div class="sec-sub">기업 선정부터 최종 발표까지, 크림슨밸류의 분석 과정을 공개합니다.</div>
     </div>
     <div class="ra-status">● 예시 리포트 공개 준비 중</div>
+    <!--
+      실제 예시 리포트 파일이 준비되면 해당 단계의 .rs-files 안에 아래 형식의 링크를 추가하세요.
+      파일이 없는 단계는 .rs-files를 비워 두면 자동으로 숨겨집니다. (파일은 assets/docs/ 에 넣고 deploy.ps1로 배포)
+        <a class="rs-file" href="assets/docs/파일명.pdf" download>자료 이름 · PDF</a>
+    -->
     <div class="ra-stages">
-      <div class="ra-stage"><div class="rs-num">01</div><div class="rs-t">기업 선정·투자 포인트</div></div>
-      <div class="ra-stage"><div class="rs-num">02</div><div class="rs-t">산업·비즈니스 모델 분석</div></div>
-      <div class="ra-stage"><div class="rs-num">03</div><div class="rs-t">재무·밸류에이션 분석</div></div>
-      <div class="ra-stage"><div class="rs-num">04</div><div class="rs-t">최종 리서치 리포트</div></div>
+      <div class="ra-stage">
+        <div class="rs-num">01</div>
+        <div class="rs-t">기업 선정·투자 포인트</div>
+        <div class="rs-w">연결 커리큘럼 · 1주차</div>
+        <div class="rs-d">9주간 이어서 분석할 관심기업을 정하고, 분석의 출발점이 되는 핵심 관점을 정리합니다.</div>
+        <div class="rs-files"></div>
+        <div class="rs-st">공개 준비 중</div>
+      </div>
+      <div class="ra-stage">
+        <div class="rs-num">02</div>
+        <div class="rs-t">산업·비즈니스 모델</div>
+        <div class="rs-w">연결 커리큘럼 · 2~3주차</div>
+        <div class="rs-d">기업의 사업구조와 수익모델, 소속 산업의 구조와 경쟁 환경을 분석합니다.</div>
+        <div class="rs-files"></div>
+        <div class="rs-st">공개 준비 중</div>
+      </div>
+      <div class="ra-stage">
+        <div class="rs-num">03</div>
+        <div class="rs-t">재무·밸류에이션</div>
+        <div class="rs-w">연결 커리큘럼 · 4~6주차</div>
+        <div class="rs-d">재무제표를 읽고 기업가치 평가 방법론을 단계적으로 적용합니다.</div>
+        <div class="rs-files"></div>
+        <div class="rs-st">공개 준비 중</div>
+      </div>
+      <div class="ra-stage">
+        <div class="rs-num">04</div>
+        <div class="rs-t">최종 리포트</div>
+        <div class="rs-w">연결 커리큘럼 · 7~9주차</div>
+        <div class="rs-d">경쟁사 비교와 리스크 분석을 더해 9주간의 분석을 하나의 리서치 리포트로 완성합니다.</div>
+        <div class="rs-files"></div>
+        <div class="rs-st">공개 준비 중</div>
+      </div>
     </div>
     <div class="ra-disclaimer">본 자료는 교육 및 학습 목적의 예시 리서치입니다. 특정 금융상품의 매수·매도 또는 투자 권유를 목적으로 하지 않습니다.</div>
   </div>
@@ -106,9 +135,26 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="sec-kicker">WEEKLY INSIGHT</div>
-      <div class="sec-title">이번 주 금융·산업 인사이트</div>
+      <h2 class="sec-title">이번 주 금융·산업 인사이트</h2>
       <div class="sec-sub">학회 활동과 연결해 읽어볼 만한 시장·산업 이슈를 정리합니다.</div>
     </div>
+    <!--
+      주간 인사이트 게시 방법: 운영진이 원고를 수동 작성·검수한 뒤, 아래 형식의 카드를 .insight-list 안에 최신 글이 위로 오도록 추가하세요.
+      글이 1개 이상 생기면 아래 "준비 중" 안내는 자동으로 숨겨집니다. 자동 수집·자동 게시는 사용하지 않습니다.
+
+      <article class="insight-post">
+        <div class="ip-week">2026년 N월 N주차</div>
+        <h3>이번 주 핵심 이슈</h3>
+        <p>사실 요약 2~3문장</p>
+        <h3>왜 중요한가</h3>
+        <p>산업·기업 분석 관점의 해설 2문장</p>
+        <h3>더 읽어볼 질문</h3>
+        <p>이 이슈가 특정 기업의 매출, 원가, 경쟁 환경에 어떤 영향을 줄까?</p>
+        <h3>출처</h3>
+        <p class="ip-src"><a href="원문 기사 또는 공식 자료 URL" target="_blank" rel="noopener noreferrer">출처 이름</a></p>
+      </article>
+    -->
+    <div class="insight-list"></div>
     <div class="news-placeholder">첫 주간 인사이트를 준비 중입니다. 원고를 수동으로 검수한 뒤 게시합니다.</div>
     <div class="ra-disclaimer">이 콘텐츠는 학습을 위한 정보 정리이며, 투자 판단이나 금융상품 추천을 제공하지 않습니다.</div>
   </div>
@@ -120,12 +166,15 @@
   </div>
 </section>
 
+</main>
+
 <footer id="contact">
   <div class="wrap">
     <div class="foot-row">
       <div>
         <div class="foot-brand">CRIMSON VALUE</div>
         <div class="foot-sub">고려대학교 세종캠퍼스 정식 금융·투자 학회 · EST. 2026</div>
+        <div class="foot-sub">2기 모집은 마감되었습니다.<br>다음 기수 모집 일정은 공식 인스타그램과 오픈채팅을 통해 안내합니다.</div>
         <div class="foot-sub">문의 메일 · <a href="mailto:drpjm07@korea.ac.kr">drpjm07@korea.ac.kr</a></div>
       </div>
       <div class="foot-links">

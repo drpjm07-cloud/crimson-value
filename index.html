@@ -13,7 +13,12 @@
 <meta property="og:title" content="크림슨밸류 | 고려대학교 세종캠퍼스 금융·투자 학회">
 <meta property="og:description" content="기업 분석과 리서치를 중심으로 성장하는 고려대학교 세종캠퍼스 가치투자 학회입니다.">
 <meta property="og:image" content="https://crimsonvalue.com/assets/img/og-cover.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+<meta property="og:image:alt" content="CRIMSON VALUE 크림슨밸류">
+<meta property="og:locale" content="ko_KR">
 <meta property="og:url" content="https://crimsonvalue.com/">
+<link rel="canonical" href="https://crimsonvalue.com/">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="크림슨밸류 | 고려대학교 세종캠퍼스 금융·투자 학회">
 <meta name="twitter:description" content="기업 분석과 리서치를 중심으로 성장하는 고려대학교 세종캠퍼스 가치투자 학회입니다.">
@@ -26,14 +31,15 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" as="style" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
 
-<link rel="stylesheet" href="assets/css/site.css?v=20261031">
+<link rel="stylesheet" href="assets/css/site.css?v=20261031-2">
 </head>
-<body>
+<body id="top">
+<a class="skip-link" href="#main">본문 바로가기</a>
 
 <header>
   <div class="wrap">
-    <nav>
-      <div class="logo"><span class="mark">CV</span> CRIMSON VALUE</div>
+    <nav aria-label="주요 메뉴">
+      <a class="logo" href="#top" aria-label="크림슨밸류 처음으로"><span class="mark">CV</span> CRIMSON VALUE</a>
       <div class="nav-right">
         <div class="navlinks-main">
           <a href="#about">학회소개</a>
@@ -42,8 +48,8 @@
           <a href="archive.html">자료실</a>
           <a href="#faq">문의·모집</a>
         </div>
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
-        <label for="nav-toggle" class="nav-burger" aria-label="더보기 메뉴 열기 (트랙 파인더 · 예산)">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="더보기 메뉴 열기 (트랙 파인더 · 예산)">
+        <label for="nav-toggle" class="nav-burger" aria-hidden="true">
           <span></span><span></span><span></span>
         </label>
         <div class="navlinks-more">
@@ -60,6 +66,7 @@
   </div>
 </header>
 
+<main id="main">
 <section class="hero" style="border-top:none; padding-top:96px;">
   <div class="wrap">
     <div class="eyebrow">크림슨브레인 공식 인정 학회 · <b>UIC 충청지부</b> 소속</div>
@@ -84,7 +91,7 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="sec-kicker">ABOUT</div>
-      <div class="sec-title">학회 소개</div>
+      <h2 class="sec-title">학회 소개</h2>
       <div class="sec-sub">크림슨밸류의 소속과 2026-2학기 운영 현황을 안내합니다.</div>
     </div>
     <div class="about-grid">
@@ -113,24 +120,58 @@
   </div>
 </section>
 
+<!--
+  [운영진 소개 섹션 — 실제 명단 확보 전까지 공개하지 않음]
+  운영진 이름·직책·소속·담당·한 줄 소개와 공개 동의를 받은 뒤, 이 주석의 시작과 끝 표시를 지우고 카드를 복제해 입력하세요.
+  사진은 사용하지 않습니다. 지도교수는 공개 동의가 확인된 경우에만 카드로 추가하세요.
+
+  <section id="staff">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">STAFF</div>
+        <h2 class="sec-title">운영진</h2>
+        <div class="sec-sub">크림슨밸류의 교육과 활동을 설계하고 운영합니다.</div>
+      </div>
+      <div class="staff-grid">
+        <div class="staff-card">
+          <div class="sn">이름</div>
+          <div class="sr">직책</div>
+          <div class="sm">학과·학번 또는 소속</div>
+          <div class="sa">담당 영역</div>
+          <div class="sb">한 줄 소개</div>
+        </div>
+      </div>
+    </div>
+  </section>
+-->
+
 <section id="curriculum">
   <div class="wrap">
     <div class="sec-head">
       <div class="sec-kicker">CURRICULUM</div>
-      <div class="sec-title">커리큘럼 개요</div>
+      <h2 class="sec-title">커리큘럼 개요</h2>
       <div class="sec-sub">9주 기초 과정을 마치면 관심기업 리서치 리포트 1건이 완성되고, 이후 관심사에 맞는 전문 팀으로 진급해 실전 활동을 이어갑니다.</div>
     </div>
 
+    <div class="thread-flow" aria-label="관통형 리서치 흐름">
+      <div class="thread-step is-edge"><b>1주차 · 기업 선정</b>9주간 이어갈 관심기업 1개를 선정합니다.</div>
+      <div class="thread-arrow" aria-hidden="true">→</div>
+      <div class="thread-step"><b>2~8주차 · 같은 기업을 이어서 분석</b>사업, 산업, 재무, 밸류에이션, 경쟁사, 리스크 순서로 분석합니다.</div>
+      <div class="thread-arrow" aria-hidden="true">→</div>
+      <div class="thread-step is-edge"><b>9주차 · 리서치 발표</b>매주 쌓은 분석을 하나의 리포트로 완성합니다.</div>
+    </div>
+
+    <div class="progress-note">2026-2학기 2기 진행 현황 · <span>현재 7주차 진행 중</span> (1~6주차 완료)</div>
     <div class="weeks">
-      <div class="week"><div class="wk">1주차</div><div><div class="wtitle">OT 및 기업 선정</div><div class="wdesc">오리엔테이션과 함께 9주간 이어갈 관심기업을 팀별로 선정 (관통형 리서치 시작)</div></div></div>
-      <div class="week"><div class="wk">2주차</div><div><div class="wtitle">비즈니스 모델 분석</div><div class="wdesc">선정한 기업의 사업구조와 수익모델 분석 — 리포트 '기업개요' 파트</div></div></div>
-      <div class="week"><div class="wk">3주차</div><div><div class="wtitle">산업 분석</div><div class="wdesc">소속 산업의 구조와 경쟁 환경 분석</div></div></div>
-      <div class="week"><div class="wk">4주차</div><div><div class="wtitle">재무제표 기초</div><div class="wdesc">재무상태표·손익계산서 등 기초 재무제표를 읽고 관심기업에 적용</div></div></div>
-      <div class="week"><div class="wk">5주차</div><div><div class="wtitle">밸류에이션 1</div><div class="wdesc">기업가치 평가 방법론 1단계 적용</div></div></div>
-      <div class="week"><div class="wk">6주차</div><div><div class="wtitle">밸류에이션 2</div><div class="wdesc">기업가치 평가 방법론 2단계로 심화</div></div></div>
-      <div class="week"><div class="wk">7주차</div><div><div class="wtitle">경쟁사 비교</div><div class="wdesc">동종업계 경쟁사와 비교 분석</div></div></div>
-      <div class="week"><div class="wk">8주차</div><div><div class="wtitle">리스크 분석</div><div class="wdesc">산업·재무·경영 리스크를 정리하고 투자 판단에 반영</div></div></div>
-      <div class="week"><div class="wk">9주차</div><div><div class="wtitle">리서치 발표</div><div class="wdesc">9주간의 분석을 하나의 리서치 리포트로 완성해 발표</div></div></div>
+      <div class="week is-start is-done"><div class="wk">1주차<span class="wst">완료</span></div><div><div class="wtitle">OT 및 기업 선정</div><div class="wdesc">오리엔테이션과 함께 9주간 이어갈 관심기업을 팀별로 선정 (관통형 리서치 시작)</div></div></div>
+      <div class="week is-done"><div class="wk">2주차<span class="wst">완료</span></div><div><div class="wtitle">비즈니스 모델 분석</div><div class="wdesc">선정한 기업의 사업구조와 수익모델 분석 — 리포트 '기업개요' 파트</div></div></div>
+      <div class="week is-done"><div class="wk">3주차<span class="wst">완료</span></div><div><div class="wtitle">산업 분석</div><div class="wdesc">소속 산업의 구조와 경쟁 환경 분석</div></div></div>
+      <div class="week is-done"><div class="wk">4주차<span class="wst">완료</span></div><div><div class="wtitle">재무제표 기초</div><div class="wdesc">재무상태표·손익계산서 등 기초 재무제표를 읽고 관심기업에 적용</div></div></div>
+      <div class="week is-done"><div class="wk">5주차<span class="wst">완료</span></div><div><div class="wtitle">밸류에이션 1</div><div class="wdesc">기업가치 평가 방법론 1단계 적용</div></div></div>
+      <div class="week is-done"><div class="wk">6주차<span class="wst">완료</span></div><div><div class="wtitle">밸류에이션 2</div><div class="wdesc">기업가치 평가 방법론 2단계로 심화</div></div></div>
+      <div class="week is-current"><div class="wk">7주차<span class="wst">진행 중</span></div><div><div class="wtitle">경쟁사 비교</div><div class="wdesc">동종업계 경쟁사와 비교 분석</div></div></div>
+      <div class="week"><div class="wk">8주차<span class="wst">예정</span></div><div><div class="wtitle">리스크 분석</div><div class="wdesc">산업·재무·경영 리스크를 정리하고 투자 판단에 반영</div></div></div>
+      <div class="week is-end"><div class="wk">9주차<span class="wst">예정</span></div><div><div class="wtitle">리서치 발표</div><div class="wdesc">9주간의 분석을 하나의 리서치 리포트로 완성해 발표</div></div></div>
     </div>
     <div class="curriculum-note">※ 위 9주 커리큘럼은 2026-2학기(2기) 확정 운영안입니다. 매주 오프라인으로 진행하며, 개념 브리핑과 팀 실습을 병행합니다.</div>
 
@@ -176,7 +217,7 @@
       <p>트랙 결과는 강제 배정이 아니라 학습 방향을 위한 참고 결과입니다.</p>
     </div>
 
-    <div class="team-grid">
+    <div class="team-grid" id="teams">
       <div class="team-card"><div class="ti">01</div><div class="tt">투자분석팀</div><div class="td">기업 분석을 중심으로 활동합니다.</div></div>
       <div class="team-card"><div class="ti">02</div><div class="tt">매크로분석팀</div><div class="td">거시경제 분석을 중심으로 활동합니다.</div></div>
       <div class="team-card"><div class="ti">03</div><div class="tt">리서치팀</div><div class="td">리서치 활동을 중심으로 운영합니다.</div></div>
@@ -198,7 +239,7 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="sec-kicker">HOW WE OPERATE</div>
-      <div class="sec-title">운영 방식</div>
+      <h2 class="sec-title">운영 방식</h2>
       <div class="sec-sub">매주 정규세션이 실제로 어떻게 진행되는지 설명합니다.</div>
     </div>
     <div class="op-grid">
@@ -216,7 +257,7 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="sec-kicker">CERTIFICATE</div>
-      <div class="sec-title">수료 기준</div>
+      <h2 class="sec-title">수료 기준</h2>
       <div class="sec-sub">대면 출석을 원칙으로, 아래 두 가지를 모두 충족하면 완주 수료증이 발급됩니다.</div>
     </div>
     <div class="comp-flow">
@@ -237,9 +278,9 @@
 <section id="proof">
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-kicker">PROOF OF WORK</div>
-      <div class="sec-title">실제 실습 자료</div>
-      <div class="sec-sub">학습용 워크시트 예시입니다. 2학기에는 이러한 실습을 9주간 이어가며 관심기업 1개를 분석합니다.</div>
+      <div class="sec-kicker">ACTIVITY · REPORT</div>
+      <h2 class="sec-title">활동·리포트</h2>
+      <div class="sec-sub">실제 실습 자료입니다. 학습용 워크시트 예시이며, 2학기에는 이러한 실습을 9주간 이어가며 관심기업 1개를 분석합니다.</div>
     </div>
     <div class="proof-grid">
       <figure class="proof-item">
@@ -275,8 +316,13 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="sec-kicker">FAQ</div>
-      <div class="sec-title">자주 묻는 질문</div>
+      <h2 class="sec-title">자주 묻는 질문</h2>
       <div class="sec-sub">모집, 활동, 교육 방식에 관한 기본 안내입니다.</div>
+    </div>
+
+    <div class="note-card" style="margin-top:0;">
+      <div class="nc-title">모집 현황</div>
+      <p>2기 모집은 마감되었습니다. 다음 기수 모집 일정은 공식 인스타그램과 오픈채팅을 통해 안내합니다.</p>
     </div>
 
     <table class="channel-table">
@@ -330,6 +376,7 @@
     </div>
   </div>
 </section>
+</main>
 
 <footer id="contact">
   <div class="wrap">
@@ -355,8 +402,14 @@
     var toggle = document.getElementById('nav-toggle');
     var links = document.querySelectorAll('.navlinks-main a, .navlinks-more a');
     if (!toggle) return;
+    function sync() { toggle.setAttribute('aria-expanded', toggle.checked ? 'true' : 'false'); }
+    sync();
+    toggle.addEventListener('change', sync);
     links.forEach(function (a) {
-      a.addEventListener('click', function () { toggle.checked = false; });
+      a.addEventListener('click', function () { toggle.checked = false; sync(); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && toggle.checked) { toggle.checked = false; sync(); toggle.focus(); }
     });
   })();
 </script>

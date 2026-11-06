@@ -9,12 +9,19 @@
 <meta property="og:site_name" content="CRIMSON VALUE">
 <meta property="og:title" content="내 투자·리서치 학습 트랙 진단하기 | 크림슨밸류">
 <meta property="og:description" content="5개 문항으로 확인하는 나의 학습 출발점. 초급·중급·상급·취업준비 트랙을 제안합니다.">
-<meta property="og:image" content="https://crimsonvalue.com/assets/img/og-cover.png">
+<meta property="og:image" content="https://crimsonvalue.com/assets/img/og-track-finder.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="CRIMSON VALUE 내 트랙 진단하기 · Korea University Sejong · Investment Club">
+<meta property="og:locale" content="ko_KR">
 <meta property="og:url" content="https://crimsonvalue.com/track-finder.html">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="내 투자·리서치 학습 트랙 진단하기 | 크림슨밸류">
 <meta name="twitter:description" content="5개 문항으로 확인하는 나의 학습 출발점. 초급·중급·상급·취업준비 트랙을 제안합니다.">
-<meta name="twitter:image" content="https://crimsonvalue.com/assets/img/og-cover.png">
+<meta name="twitter:image" content="https://crimsonvalue.com/assets/img/og-track-finder.png">
+<meta name="theme-color" content="#1B2340">
+<link rel="canonical" href="https://crimsonvalue.com/track-finder.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%231B2340' stroke='%23C9A227' stroke-width='3'/%3E%3Ctext x='32' y='41' font-family='Arial,Helvetica,sans-serif' font-weight='800' font-size='22' fill='%238C1D2B' text-anchor='middle'%3ECV%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
   :root {
@@ -47,6 +54,8 @@
     padding-inline: 20px;
     padding-block: 0 64px;
     line-height: 1.6;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
   .wrap { max-width: 920px; margin: 0 auto; }
 
@@ -129,7 +138,7 @@
   }
   .rec-panel .headline { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
   .rec-chip {
-    display: inline-flex; align-items: center; padding: 6px 14px; border-radius: 100px;
+    display: inline-flex; align-items: center; padding: 6px 14px; border-radius: 8px;
     font-family: "Pretendard Variable", Pretendard, "Malgun Gothic", sans-serif; font-weight: 700; font-size: 17px;
     background: var(--accent-tint); color: var(--accent);
   }
@@ -143,7 +152,7 @@
   .tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 18px; }
   .tab-btn {
     font-family: inherit; font-weight: 600; font-size: 13.5px;
-    padding: 9px 16px; border-radius: 100px; border: 1px solid var(--line);
+    padding: 10px 16px; border-radius: 8px; min-height: 40px; border: 1px solid var(--line);
     background: var(--paper-raised); color: var(--ink-soft); cursor: pointer;
   }
   .tab-btn[aria-selected="true"] {
@@ -179,7 +188,8 @@
   .site-bar { display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap;
     max-width:920px; margin:0 auto 28px; padding:16px 0; border-bottom:1px solid var(--line); }
   .site-bar a { text-decoration:none; font-weight:600; font-size:14px; padding:8px 6px; margin:-8px -6px; border-radius:8px; transition:color .15s ease; }
-  .site-bar .brand { color:var(--crimson); font-weight:700; font-size:16px; letter-spacing:-0.01em; }
+  .site-bar .brand { display:inline-flex; align-items:center; gap:10px; color:var(--navy); font-weight:800; font-size:16px; letter-spacing:1px; }
+  .site-bar .brand .mark { width:30px; height:30px; border-radius:50%; border:1.4px solid #C9A227; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; color:var(--crimson); letter-spacing:0; }
   .site-bar .links { display:flex; gap:4px 18px; flex-wrap:wrap; }
   .site-bar .links a { color:var(--ink-soft); }
   .site-bar a:hover { text-decoration:underline; color:var(--crimson); }
@@ -190,12 +200,36 @@
   }
   .next-step-note a { color: var(--crimson); font-weight: 700; }
   .next-step-note a:hover { text-decoration: underline; }
+
+  /* 결과 상세 + 이동 버튼 (메인 사이트의 버튼 톤과 통일) */
+  .rec-detail { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); }
+  .rec-detail .rd-title { font-size: 12px; font-weight: 700; color: var(--gray); letter-spacing: 0.04em; margin-bottom: 4px; }
+  .rec-detail p { font-size: 14px; color: var(--ink); line-height: 1.65; margin: 0; }
+  .rec-detail .rd-note { font-size: 12.5px; color: var(--gray); margin-top: 8px; }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+  .tf-btn {
+    display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 11px 20px;
+    border-radius: 8px; font-family: inherit; font-weight: 700; font-size: 14px; text-decoration: none; cursor: pointer;
+    background: var(--paper-raised); color: var(--navy); border: 1.4px solid var(--line); transition: background .15s ease, border-color .15s ease;
+  }
+  .tf-btn:hover { border-color: var(--navy); }
+  .tf-btn.primary { background: var(--crimson); border-color: var(--crimson); color: #fff; }
+  .tf-btn.primary:hover { background: #a3222f; border-color: #a3222f; }
+  .foot-channels { flex-basis: 100%; display: flex; flex-wrap: wrap; gap: 4px 18px; }
+  .foot-channels a { color: var(--ink-soft); font-weight: 600; padding: 10px 0; }
+  .foot-channels a:hover { color: var(--crimson); }
+  .skip-link { position: absolute; left: 12px; top: -56px; z-index: 300; background: var(--navy); color: #fff; padding: 10px 16px; border-radius: 8px; font-size: 13px; font-weight: 700; }
+  .skip-link:focus { top: 12px; }
+  :focus-visible { outline: 2px solid var(--crimson); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  @media (max-width: 480px) { .btn-row .tf-btn { width: 100%; } }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">본문 바로가기</a>
 
 <nav class="site-bar" aria-label="사이트 이동">
-  <a class="brand" href="index.html">CRIMSON VALUE</a>
+  <a class="brand" href="index.html" aria-label="크림슨밸류 메인으로"><span class="mark">CV</span> CRIMSON VALUE</a>
   <div class="links">
     <a href="index.html#about">← 크림슨밸류 소개</a>
     <a href="index.html#curriculum">9주 커리큘럼</a>
@@ -204,6 +238,7 @@
 </nav>
 
 <div class="wrap">
+<main id="main">
 
   <header class="top">
     <div class="eyebrow">Crimson Value · 2026-2학기</div>
@@ -214,7 +249,7 @@
   <div class="status-bar" id="statusBar">
     <div class="rec">
       <div class="label">현재 추천 트랙</div>
-      <div class="value" id="recValue">문항을 체크해 보세요</div>
+      <div class="value" id="recValue" aria-live="polite">문항을 체크해 보세요</div>
     </div>
     <div class="bars" id="barsWrap"></div>
   </div>
@@ -233,7 +268,12 @@
         <span class="rec-chip" id="recChip">체크 대기 중</span>
         <span id="recSub" style="color:var(--ink-soft); font-size:13.5px;"></span>
       </div>
-      <p class="explain" id="recExplain"></p>
+      <p class="explain" id="recExplain" aria-live="polite"></p>
+      <div class="rec-detail" id="recDetail" hidden>
+        <div class="rd-title">이 트랙의 학습 출발점</div>
+        <p id="recDesc"></p>
+        <p class="rd-note">트랙은 현재 학습 수준을 바탕으로 한 시작점입니다. 팀 배정이나 참여 자격을 정하는 결과가 아닙니다.</p>
+      </div>
       <div class="rule-box">
         판정 기준 — 트랙별 5문항 중 3개 이상 체크되면 그 트랙에 도달한 것으로 봅니다. 두 개 이상의 트랙이 동시에 기준을 채우면 더 높은 트랙을 추천하고, 아무 트랙도 3개를 채우지 못하면 체크 수가 가장 많은 트랙 중 더 낮은(안전한) 트랙을 기본값으로 안내합니다.
       </div>
@@ -241,6 +281,11 @@
 
     <div class="next-step-note">
       추천 트랙을 확인했다면, <a href="index.html#curriculum">9주 커리큘럼과 활동 팀</a>도 살펴보세요. 현재 트랙에서 참고할 수 있는 분석 예시는 <a href="archive.html#research-archive">리서치 아카이브</a>에서 준비 중입니다.
+      <div class="btn-row">
+        <a class="tf-btn primary" href="index.html#curriculum">9주 커리큘럼 보기</a>
+        <a class="tf-btn" href="index.html#teams">활동 팀 살펴보기</a>
+        <button class="tf-btn" type="button" id="resetBtn">다시 진단하기</button>
+      </div>
     </div>
   </section>
 
@@ -257,9 +302,16 @@
     <p class="foot-note">티커(종목코드)는 작성 시점 기준이며 상장 상태, 종목코드, 사명은 변경될 수 있습니다. 분석 전에는 거래소 공시 등 공식 출처에서 최신 정보를 확인하세요.</p>
   </section>
 
+</main>
   <footer>
     <span>Crimson Value 학회 운영 자료 · 2026-2학기 커리큘럼 참고용</span>
     <span>투자 판단의 근거로 사용할 수 없습니다</span>
+    <span style="flex-basis:100%;">2기 모집은 마감되었습니다. 다음 기수 모집 일정은 공식 인스타그램과 오픈채팅을 통해 안내합니다.</span>
+    <div class="foot-channels">
+      <a href="https://www.instagram.com/crimson_value26/" target="_blank" rel="noopener noreferrer">공식 인스타그램</a>
+      <a href="https://open.kakao.com/o/sDRXaiJi" target="_blank" rel="noopener noreferrer">오픈채팅 문의</a>
+      <a href="mailto:drpjm07@korea.ac.kr">이메일</a>
+    </div>
   </footer>
 </div>
 
@@ -297,7 +349,7 @@
       ]
     },
     {
-      key: "job", name: "취업준비팀", accent: "var(--charcoal)", accentTint: "var(--charcoal-tint)", cssVar: "--charcoal", tintVar: "--charcoal-tint", tabHex: "#22201E",
+      key: "job", name: "취업준비", accent: "var(--charcoal)", accentTint: "var(--charcoal-tint)", cssVar: "--charcoal", tintVar: "--charcoal-tint", tabHex: "#22201E",
       items: [
         "실제 기업분석 인턴십, 공모전, 또는 면접에서 리포트를 활용할 계획이 있다.",
         "두괄식(주장 먼저, 근거는 뒤에)으로 보고서를 쓰는 훈련이 필요하다고 느낀다.",
@@ -307,6 +359,13 @@
       ]
     }
   ];
+
+  var DESCS = {
+    beg: "재무제표를 처음 읽어 보는 단계입니다. 사업 내용을 한 문장으로 설명할 수 있는 단일 사업 기업으로 재무제표 읽기와 PER·PBR 계산을 익히는 것에서 시작합니다.",
+    int: "재무제표를 읽고 매출·영업이익 구조를 파악하는 단계입니다. 사업부가 여러 개인 기업의 사업보고서를 읽고, 공시로 확인되는 정보와 추정이 필요한 정보를 구분하는 연습에서 시작합니다.",
+    adv: "업종별로 다른 지표와 거시 변수의 영향을 함께 살피는 단계입니다. 같은 기준일·같은 산식으로 기업을 비교하고, 지표의 한계까지 설명하는 연습에서 시작합니다.",
+    job: "분석 결과를 리포트로 정리해 인턴십·공모전·면접에 활용하려는 단계입니다. 두괄식 구성, 반대 논거 포함, 글로벌 경쟁사 비교 기준 맞추기를 연습하는 것에서 시작합니다."
+  };
 
   var COMPANIES = {
     beg: [
@@ -332,7 +391,7 @@
       ["코웨이","021240","정수기·비데 렌탈이라는 단일 구독 모델로 매출 인식 방식을 배우기 좋다."]
     ],
     int: [
-      ["하이브","352820","예시 리포트의 주인공. 음반·공연·MD·플랫폼 등 사업 갈래가 많아 '어디까지가 확인 가능한 숫자인지' 구분하는 연습의 기준점이 된다."],
+      ["하이브","352820","음반·공연·MD·플랫폼 등 사업 갈래가 많아 '어디까지가 확인 가능한 숫자인지' 구분하는 연습의 기준점이 된다."],
       ["오리온","271560","한국·중국·베트남·러시아 법인별로 매출을 나눠 공시해 국가별 SOTP 개념을 연습하기 좋다."],
       ["CJ ENM","035760","미디어·커머스·음악·영화 등 사업부가 뚜렷이 나뉘어 부문별 실적표를 직접 만들어볼 수 있다."],
       ["콘텐트리중앙","036420","방송·영화·엔터 자회사를 거느린 지주 성격이 있어 자회사 실적 합산 구조를 배우기 좋다."],
@@ -354,7 +413,7 @@
       ["대상","001680","식품(청정원)과 소재(전분당 등) 사업부가 나뉘어 있어 B2C·B2B 혼합 구조를 함께 배운다."]
     ],
     adv: [
-      ["카카오뱅크","323410","예시 리포트의 주인공. 은행업 특유의 영업수익·이자이익 구조와 PBR·ROE 조합을 처음 연습하는 기준점이다."],
+      ["카카오뱅크","323410","은행업 특유의 영업수익·이자이익 구조와 PBR·ROE 조합을 처음 연습하는 기준점이다."],
       ["KB금융","105560","국내 최대 금융지주로 은행·증권·보험 자회사를 함께 둔 복합 금융그룹 분석의 표준 사례다."],
       ["신한지주","055550","KB금융과 나란히 놓고 비교하면 은행업 안에서도 수익 구조 차이가 드러난다."],
       ["하나금융지주","086790","비은행 부문 비중 확대 전략이 뚜렷해 금융지주 간 전략 차이를 비교하는 연습이 된다."],
@@ -376,7 +435,7 @@
       ["GS건설","006360","건설업 특유의 공사진행률 기준 매출 인식과 미청구공사 리스크를 함께 살펴야 한다."]
     ],
     job: [
-      ["SK하이닉스","000660","예시 리포트의 주인공. 반도체 사이클과 일회성 손익까지 함께 짚어야 하는 대표 사례다."],
+      ["SK하이닉스","000660","반도체 사이클과 일회성 손익까지 함께 짚어야 하는 대표 사례다."],
       ["삼성전자","005930","반도체·모바일·가전 등 사업부가 방대해 부문별 정보 공개 수준의 한계까지 짚어야 한다."],
       ["LG에너지솔루션","373220","배터리 산업 특유의 수주잔고·증설투자 계획을 글로벌 경쟁사와 비교해야 한다."],
       ["삼성SDI","006400","LG에너지솔루션과 나란히 놓고 배터리 업체 간 수익성 격차의 원인을 뜯어보는 연습이 된다."],
@@ -500,10 +559,12 @@
     var recSub = document.getElementById("recSub");
     var recExplain = document.getElementById("recExplain");
 
+    var recDetail = document.getElementById("recDetail");
     if (mode === "none") {
+      recDetail.hidden = true;
       recValue.textContent = "문항을 체크해 보세요";
       recChip.textContent = "체크 대기 중";
-      recChip.style.color = "var(--gray)";
+      recChip.style.color = "var(--ink-soft)";
       recChip.style.background = "var(--line)";
       recSub.textContent = "";
       recExplain.textContent = "위 네 그룹 중 지금 나에게 해당하는 문항을 체크하면 추천 트랙이 계산됩니다.";
@@ -515,6 +576,8 @@
     recChip.textContent = tierObj.name;
     recChip.style.color = tierObj.accent;
     recChip.style.background = tierObj.accentTint;
+    document.getElementById("recDesc").textContent = DESCS[recKey];
+    recDetail.hidden = false;
 
     if (mode === "qualified") {
       recSub.textContent = "5문항 중 " + scores[recKey] + "개 해당";
@@ -528,6 +591,13 @@
   }
 
   update();
+
+  document.getElementById("resetBtn").addEventListener("click", function () {
+    checked = {};
+    document.querySelectorAll(".item input").forEach(function (cb) { cb.checked = false; });
+    update();
+    window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  });
 
   // --- company tabs ---
   var tabsWrap = document.getElementById("tabsWrap");
@@ -583,9 +653,31 @@
     TIERS.forEach(function (t) {
       var active = t.key === key;
       t._btn.setAttribute("aria-selected", active ? "true" : "false");
+      t._btn.setAttribute("tabindex", active ? "0" : "-1");
       t._panel.setAttribute("data-active", active ? "true" : "false");
     });
   }
+
+  // 탭 접근성: 역할 지정 + 방향키 이동
+  tabsWrap.setAttribute("role", "tablist");
+  tabsWrap.setAttribute("aria-label", "트랙별 예시 기업");
+  TIERS.forEach(function (t, i) {
+    t._btn.setAttribute("role", "tab");
+    t._btn.id = "tab-" + t.key;
+    t._btn.setAttribute("aria-controls", "panel-" + t.key);
+    t._btn.setAttribute("tabindex", i === 0 ? "0" : "-1");
+    t._panel.id = "panel-" + t.key;
+    t._panel.setAttribute("role", "tabpanel");
+    t._panel.setAttribute("aria-labelledby", "tab-" + t.key);
+    t._btn.addEventListener("keydown", function (e) {
+      var step = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (!step) return;
+      var next = TIERS[(i + step + TIERS.length) % TIERS.length];
+      selectTab(next.key);
+      next._btn.focus();
+      e.preventDefault();
+    });
+  });
 })();
 </script>
 </body>
